@@ -19,3 +19,17 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.products {
+  display: flex;
+  flex: 3;
+}
+
+.products .product-detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: calc(33.333333% - 10px);
+}
+
+.products .product-detail-wrapper .product-name {
+}
