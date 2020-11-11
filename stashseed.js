@@ -1,11 +1,5 @@
 const {green, red} = require('chalk')
-const {Product, User} = require('./server/db/models')
-// const User = require('./server/db/models')
-const db = require('./server/db')
-
-console.log('Product = ', Product)
-console.log(typeof Product)
-
+const {db, Product, User} = require('./server/db')
 // const {products} = require('./data-user')
 // const {users} = require('./data-product')
 
