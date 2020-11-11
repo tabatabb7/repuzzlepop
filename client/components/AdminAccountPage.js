@@ -15,9 +15,11 @@ export class AdminAccountPage extends React.Component {
           <div className="users">
             {users.length < 1
               ? 'No Users'
-              : users.map((user) => (
+              : users.map(user => (
                   <div key={user.id} className="user-child">
-                    <h5>{user.firstName} {user.lastName}</h5>
+                    <h5>
+                      {user.firstName} {user.lastName}
+                    </h5>
                     <h5>{user.email}</h5>
                     <NavLink to={`/users/${user.id}`}>
                       <button className="user-page-button" type="button">
@@ -33,13 +35,12 @@ export class AdminAccountPage extends React.Component {
           <div className="products">
             {products.length < 1
               ? 'No Products'
-              : products.map((product) => (
+              : products.map(product => (
                   <div key={product.id} className="product-child">
                     <h5>{product.name}</h5>
 
                     <NavLink to={`/products/${product.id}`}>
                       <button className="edit-product-button" type="button">
-                        {/* onClick={() => this.handleDelete(student.id)} */}
                         Edit Product
                       </button>
                     </NavLink>
