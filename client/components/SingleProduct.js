@@ -1,4 +1,6 @@
 import React from 'react'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 export default SingleProduct = () => {
   return (
@@ -7,7 +9,7 @@ export default SingleProduct = () => {
         <Navbar />
       </div>
       <div>
-        
+        <Footer />
       </div>
     </div>
   )
