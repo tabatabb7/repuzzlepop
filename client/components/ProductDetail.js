@@ -1,6 +1,7 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
-export const ProductDetail = product => {
+const ProductDetail = product => {
   return (
     <div className="product-detail-wrapper">
       <div key={product.id} className="product-child">
@@ -27,3 +28,5 @@ export const ProductDetail = product => {
     </div>
   )
 }
+
+export default ProductDetail
