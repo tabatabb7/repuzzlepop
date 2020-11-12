@@ -1,5 +1,14 @@
-body {
+* {
+  box-sizing: border-box;
+  width: 100%;
   font-family: sans-serif;
+}
+
+body {
+  position: absolute;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -8,6 +17,10 @@ a {
 
 label {
   display: block;
+}
+
+nav {
+  display: flex;
 }
 
 nav a {
@@ -22,9 +35,9 @@ form div {
 
 .products {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
-  flex: 3;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .products .product-detail-wrapper {
@@ -34,4 +47,5 @@ form div {
 }
 
 .products .product-detail-wrapper .product-name {
+  width: calc(33.333333% - 10px);
 }

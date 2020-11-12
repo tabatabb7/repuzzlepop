@@ -31,7 +31,7 @@ const Product = db.define('product', {
   image: {
     type: Sequelize.TEXT,
     allowNull: false,
-    defaultValue: '/public/images/default-product.png',
+    defaultValue: '/images/default-product.png',
     validate: {
       notEmpty: true
     }
