@@ -4,10 +4,7 @@ import axios from 'axios'
  * ACTION TYPES
  */
 const GET_PRODUCTS_FROM_SERVER = 'GET_PRODUCTS_FROM_SERVER'
-const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'
-const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
-const ADD_QUANTITY = 'ADD_QUANTITY'
-const SUBTRACT_QUANTITY = 'SUBTRACT_QUANTITY'
+
 const REMOVE_PRODUCT_FROM_SERVER = 'REMOVE_PRODUCT_FROM_SERVER'
 
 /**
@@ -20,26 +17,6 @@ const initialState = []
  */
 export const getProductsFromServer = products => ({
   type: GET_PRODUCTS_FROM_SERVER,
-  products
-})
-
-export const addToCart = products => ({
-  type: ADD_PRODUCT_TO_CART,
-  products
-})
-
-export const removeFromCart = products => ({
-  type: REMOVE_FROM_CART,
-  products
-})
-
-export const addQuantity = products => ({
-  type: ADD_QUANTITY,
-  products
-})
-
-export const subtractQuantity = products => ({
-  type: SUBTRACT_QUANTITY,
   products
 })
 
@@ -88,14 +65,6 @@ export default function productsReducer(state = initialState, action) {
           ...state.products.filter(product => product.id !== action.productId)
         ]
       }
-    case ADD_PRODUCT_TO_CART:
-      return {...state, shoppingCart: {name: action.products}}
-
-    // case REMOVE_FROM_CART:
-    //   return {
-    //     ...state,
-    //     shoppingCart:
-    //   }
 
     default:
       return state
