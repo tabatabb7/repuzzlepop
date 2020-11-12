@@ -15,7 +15,7 @@ class SingleProduct extends React.Component {
     const product = this.props.product
     return (
       <div>
-        {product.map((product) => (
+        {product.map(product => (
           <div id="single-product">
             <img id="single-product-img" src={product.image} />
             <h3>{product.name}</h3>
@@ -29,19 +29,19 @@ class SingleProduct extends React.Component {
           <input type="number" id="quantity" name="quantity" />
           <button type="submit">Add To Cart</button>
         </form>
-        <Link to={`/products`}>Return to All Products</Link>
+        <Link to="/products">Return to All Products</Link>
       </div>
     )
   }
 }
-const mapState = (state) => {
+const mapState = state => {
   return {
-    product: state.product,
+    product: state.product
   }
 }
-const mapDispatch = (dispatch) => {
+const mapDispatch = dispatch => {
   return {
-    loadSingleProduct: (id) => dispatch(fetchSingleProduct(id)),
+    loadSingleProduct: id => dispatch(fetchSingleProduct(id))
   }
 }
 export default connect(mapState, mapDispatch)(SingleProduct)
