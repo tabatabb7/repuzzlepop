@@ -28,6 +28,10 @@ nav a {
   margin: 1em;
 }
 
+nav #shopping-cart {
+  width: 20px;
+}
+
 form div {
   margin: 1em;
   display: inline-block;
@@ -43,9 +47,10 @@ form div {
 .products .product-detail-wrapper {
   display: flex;
   flex-direction: column;
+  padding: 10px;
   width: calc(33.333333% - 10px);
 }
 
 .products .product-detail-wrapper .product-name {
-  width: calc(33.333333% - 10px);
+  width: 100%;
 }
