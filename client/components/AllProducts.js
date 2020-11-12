@@ -5,23 +5,38 @@ import {connect} from 'react-redux'
 
 export class AllProducts extends React.Component {
   componentDidMount() {
+    console.log('Mounted')
     this.props.getProducts()
   }
 
   render() {
-    const {products} = this.props.products
-    return (
-      <div>
-        <h2>All Products</h2>
-        <div className="products">
-          {products.length < 1
-            ? 'No Products'
-            : products.map(product => (
-                <ProductDetail key={product.id} product={product} />
-              ))}
+    const products = this.props.products.products || []
+
+    console.log('this.props.products.products ', this.props.products.products)
+    console.log('this.props.products ', this.props.products)
+    console.log('products ', products)
+
+    // if (products.length)
+    // console.log('this.props.products', this.props.products)
+    // console.log('this.state.products  = ', this.state.products)
+
+    if (products.length === 0) {
+      return <h1>No Products</h1>
+    } else {
+      return (
+        <div>
+          Rendering all products.
+          <h2>All Products</h2>
+          <div className="products">
+            {products.length < 1
+              ? 'No Products'
+              : products.map(product => (
+                  <ProductDetail key={product.id} product={product} />
+                ))}
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 }
 
