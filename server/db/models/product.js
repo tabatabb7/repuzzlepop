@@ -5,34 +5,52 @@ const Product = db.define('product', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   origPrice: {
     type: Sequelize.INTEGER,
-    validate: {},
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+      min: 0
+    }
   },
   resellPrice: {
     type: Sequelize.INTEGER,
     allowNull: false,
-    validate: {},
+    validate: {
+      notEmpty: true,
+      min: 0
+    }
   },
   description: {
-    type: Sequelize.TEXT,
+    type: Sequelize.TEXT
   },
   image: {
     type: Sequelize.TEXT,
-    //defaultValue: 'default.png'
+    allowNull: false,
+    defaultValue: '/public/images/default-product.png',
+    validate: {
+      notEmpty: true
+    }
   },
   rating: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.FLOAT,
     validate: {
-      min: 0.0,
-      max: 5.0,
-    },
+      min: 0,
+      max: 5
+    }
   },
   stock: {
     type: Sequelize.INTEGER,
     allowNull: false,
-  },
+    defaultValue: 0,
+    validate: {
+      notEmpty: true
+    }
+  }
 })
 
 module.exports = Product
