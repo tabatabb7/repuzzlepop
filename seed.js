@@ -1,5 +1,5 @@
 const {green, red} = require('chalk')
-const {Product, User} = require('./server/db/models')
+const {Product, User, Order, CartItem} = require('./server/db/models')
 // const User = require('./server/db/models')
 const db = require('./server/db')
 
@@ -8,6 +8,8 @@ console.log(typeof Product)
 
 // const {products} = require('./data-user')
 // const {users} = require('./data-product')
+const {order} = require('./data-order')
+const {cartItem} = require('./data-cartItem')
 
 const seed = async () => {
   try {
@@ -2392,7 +2394,69 @@ const seed = async () => {
     ] = await User.bulkCreate(users)
     console.log(green('Seeded users'))
 
-    await lvogeler0.setProduct(ac)
+    const orders = [
+      {
+        submitted: false,
+        orderDate: '2020-11-12',
+        totalPrice: 25,
+        orderNumber: 1,
+        userId: 1
+      },
+      {
+        submitted: false,
+        orderDate: '2020-11-12',
+        totalPrice: 12,
+        orderNumber: 2,
+        userId: 2
+      },
+      {
+        submitted: false,
+        orderDate: '2020-11-12',
+        totalPrice: 45,
+        orderNumber: 3,
+        userId: 3
+      }
+    ]
+
+    const [order1, order2, order3] = await Order.bulkCreate(orders)
+    console.log(green('Seeded orders'))
+
+    const cartItems = [
+      {
+        quantity: 1,
+        historicalPrice: 25,
+        orderId: 1,
+        productId: 1
+      },
+      {
+        quantity: 1,
+        historicalPrice: 25,
+        orderId: 2,
+        productId: 2
+      },
+      {
+        quantity: 1,
+        historicalPrice: 25,
+        orderId: 3,
+        productId: 3
+      },
+      {
+        quantity: 1,
+        historicalPrice: 25,
+        orderId: 3,
+        productId: 4
+      }
+    ]
+
+    const [
+      cartItem1,
+      cartItem2,
+      cartItem3,
+      cartItem4
+    ] = await CartItem.bulkCreate(cartItems)
+    console.log(green('Seeded cartItems'))
+
+    // await lvogeler0.setProduct(ac)
 
     // set associations
     // await ac.setUser(lvogeler0)
