@@ -15,7 +15,7 @@ export class AdminAccountPage extends React.Component {
           <div className="users">
             {users.length < 1
               ? 'No Users'
-              : users.map(user => (
+              : users.map((user) => (
                   <div key={user.id} className="user-child">
                     <h5>
                       {user.firstName} {user.lastName}
@@ -35,7 +35,7 @@ export class AdminAccountPage extends React.Component {
           <div className="products">
             {products.length < 1
               ? 'No Products'
-              : products.map(product => (
+              : products.map((product) => (
                   <div key={product.id} className="product-child">
                     <h5>{product.name}</h5>
 
