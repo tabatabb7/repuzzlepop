@@ -1,15 +1,6 @@
 const {green, red} = require('chalk')
 const {Product, User, Order, CartItem} = require('./server/db/models')
-// const User = require('./server/db/models')
 const db = require('./server/db')
-
-console.log('Product = ', Product)
-console.log(typeof Product)
-
-// const {products} = require('./data-user')
-// const {users} = require('./data-product')
-const {order} = require('./data-order')
-const {cartItem} = require('./data-cartItem')
 
 const seed = async () => {
   try {
