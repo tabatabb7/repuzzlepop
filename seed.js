@@ -525,7 +525,6 @@ const seed = async () => {
         origPrice: 43.59,
         resellPrice: 43.59,
         description: 'scelerisque mauris sit amet eros suspendisse accumsan',
-        image: '/images/default-image.png',
         rating: 4.25,
         stock: 1
       },
@@ -535,7 +534,6 @@ const seed = async () => {
         resellPrice: 7.45,
         description:
           'lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia',
-        image: '/images/default-image.png',
         rating: 3.28,
         stock: 1
       },
@@ -545,7 +543,6 @@ const seed = async () => {
         resellPrice: 9.92,
         description:
           'dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere',
-        image: '/images/default-image.png',
         rating: 1,
         stock: 1
       },
@@ -555,7 +552,6 @@ const seed = async () => {
         resellPrice: 6.34,
         description:
           'leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas',
-        image: '/images/default-image.png',
         rating: 0.97,
         stock: 1
       },
@@ -564,7 +560,6 @@ const seed = async () => {
         origPrice: 48.15,
         resellPrice: 48.15,
         description: 'dapibus augue vel accumsan tellus nisi eu orci mauris',
-        image: '/images/default-image.png',
         rating: 3.8,
         stock: 1
       },
@@ -574,7 +569,6 @@ const seed = async () => {
         resellPrice: 12.97,
         description:
           'sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla',
-        image: '/images/default-image.png',
         rating: 0.15,
         stock: 1
       },
@@ -583,7 +577,6 @@ const seed = async () => {
         origPrice: 14.6,
         resellPrice: 14.6,
         description: 'curabitur convallis duis',
-        image: '/images/default-image.png',
         rating: 2.89,
         stock: 1
       },
@@ -593,7 +586,6 @@ const seed = async () => {
         resellPrice: 45.23,
         description:
           'ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor',
-        image: '/images/default-image.png',
         rating: 4.87,
         stock: 1
       },
@@ -603,7 +595,6 @@ const seed = async () => {
         resellPrice: 19.69,
         description:
           'curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis',
-        image: '/images/default-image.png',
         rating: 2.63,
         stock: 1
       },
@@ -612,7 +603,6 @@ const seed = async () => {
         origPrice: 27.28,
         resellPrice: 27.28,
         description: 'consequat dui nec nisi volutpat eleifend donec ut dolor',
-        image: '/images/default-image.png',
         rating: 0.46,
         stock: 1
       },
@@ -622,7 +612,6 @@ const seed = async () => {
         resellPrice: 40.3,
         description:
           'non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum',
-        image: '/images/default-image.png',
         rating: 0.65,
         stock: 2
       },
@@ -631,7 +620,6 @@ const seed = async () => {
         origPrice: 36.71,
         resellPrice: 36.71,
         description: 'sit amet nunc viverra dapibus nulla suscipit',
-        image: '/images/default-image.png',
         rating: 1.78,
         stock: 1
       },
@@ -641,7 +629,6 @@ const seed = async () => {
         resellPrice: 39.22,
         description:
           'sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in',
-        image: '/images/default-image.png',
         rating: 2.4,
         stock: 1
       },
@@ -651,7 +638,6 @@ const seed = async () => {
         resellPrice: 35.57,
         description:
           'luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at',
-        image: '/images/default-image.png',
         rating: 0.95,
         stock: 3
       },
@@ -660,7 +646,6 @@ const seed = async () => {
         origPrice: 10.35,
         resellPrice: 2.97,
         description: 'facilisi cras non velit nec nisi',
-        image: '/images/default-image.png',
         rating: 4,
         stock: 1
       },
@@ -669,7 +654,6 @@ const seed = async () => {
         origPrice: 45.39,
         resellPrice: 18.88,
         description: 'risus semper porta volutpat quam pede lobortis ligula',
-        image: '/images/default-image.png',
         rating: 1.49,
         stock: 1
       },
@@ -679,7 +663,6 @@ const seed = async () => {
         resellPrice: 6.87,
         description:
           'amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci',
-        image: '/images/default-image.png',
         rating: 4.98,
         stock: 10
       },
@@ -689,7 +672,6 @@ const seed = async () => {
         resellPrice: 45.82,
         description:
           'rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo',
-        image: '/images/default-image.png',
         rating: 2.31,
         stock: 1
       },
@@ -699,7 +681,6 @@ const seed = async () => {
         resellPrice: 27.09,
         description:
           'porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor',
-        image: '/images/default-image.png',
         rating: 0.65,
         stock: 1
       },
@@ -708,7 +689,6 @@ const seed = async () => {
         origPrice: 28.87,
         resellPrice: 22.24,
         description: 'integer aliquet massa id lobortis convallis tortor risus',
-        image: '/images/default-image.png',
         rating: 1.94,
         stock: 1
       },
@@ -717,7 +697,6 @@ const seed = async () => {
         origPrice: 16.39,
         resellPrice: 2.57,
         description: 'duis ac nibh fusce lacus',
-        image: '/images/default-image.png',
         rating: 2.22,
         stock: 2
       },
@@ -726,7 +705,6 @@ const seed = async () => {
         origPrice: 32.03,
         resellPrice: 25.75,
         description: 'rutrum ac lobortis vel dapibus',
-        image: '/images/default-image.png',
         rating: 2.09,
         stock: 5
       },
@@ -736,7 +714,6 @@ const seed = async () => {
         resellPrice: 28.72,
         description:
           'dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum',
-        image: '/images/default-image.png',
         rating: 1.75,
         stock: 1
       },
@@ -746,7 +723,6 @@ const seed = async () => {
         resellPrice: 6.86,
         description:
           'vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus',
-        image: '/images/default-image.png',
         rating: 3.96,
         stock: 1
       },
@@ -755,7 +731,6 @@ const seed = async () => {
         origPrice: 48.92,
         resellPrice: 43.07,
         description: 'ipsum praesent blandit',
-        image: '/images/default-image.png',
         rating: 2.23,
         stock: 1
       },
@@ -764,7 +739,6 @@ const seed = async () => {
         origPrice: 29.89,
         resellPrice: 29.89,
         description: 'dolor sit amet consectetuer adipiscing elit proin',
-        image: '/images/default-image.png',
         rating: 2.2,
         stock: 5
       },
@@ -774,7 +748,6 @@ const seed = async () => {
         resellPrice: 11.37,
         description:
           'condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque',
-        image: '/images/default-image.png',
         rating: 1.19,
         stock: 1
       },
@@ -783,7 +756,6 @@ const seed = async () => {
         origPrice: 46.53,
         resellPrice: 18.23,
         description: 'enim blandit mi',
-        image: '/images/default-image.png',
         rating: 2.05,
         stock: 1
       },
@@ -793,7 +765,6 @@ const seed = async () => {
         resellPrice: 4.32,
         description:
           'consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices',
-        image: '/images/default-image.png',
         rating: 1.16,
         stock: 1
       },
@@ -803,7 +774,6 @@ const seed = async () => {
         resellPrice: 39.97,
         description:
           'sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi',
-        image: '/images/default-image.png',
         rating: 0.21,
         stock: 1
       },
@@ -812,7 +782,6 @@ const seed = async () => {
         origPrice: 9.5,
         resellPrice: 5.51,
         description: 'eleifend quam a odio in hac',
-        image: '/images/default-image.png',
         rating: 1.16,
         stock: 1
       },
@@ -821,7 +790,6 @@ const seed = async () => {
         origPrice: 39.14,
         resellPrice: 39.14,
         description: 'tellus semper interdum',
-        image: '/images/default-image.png',
         rating: 0.78,
         stock: 1
       },
@@ -831,7 +799,6 @@ const seed = async () => {
         resellPrice: 22.39,
         description:
           'eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in',
-        image: '/images/default-image.png',
         rating: 0.38,
         stock: 1
       },
@@ -841,7 +808,6 @@ const seed = async () => {
         resellPrice: 19.94,
         description:
           'duis bibendum felis sed interdum venenatis turpis enim blandit mi in',
-        image: '/images/default-image.png',
         rating: 4.56,
         stock: 1
       },
@@ -851,7 +817,6 @@ const seed = async () => {
         resellPrice: 45.47,
         description:
           'erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi',
-        image: '/images/default-image.png',
         rating: 2.43,
         stock: 1
       },
@@ -860,7 +825,6 @@ const seed = async () => {
         origPrice: 33.83,
         resellPrice: 33.83,
         description: 'lorem ipsum dolor',
-        image: '/images/default-image.png',
         rating: 1.28,
         stock: 1
       },
@@ -869,7 +833,6 @@ const seed = async () => {
         origPrice: 11.99,
         resellPrice: 11.99,
         description: 'porttitor pede justo eu massa donec dapibus duis at',
-        image: '/images/default-image.png',
         rating: 2.07,
         stock: 1
       },
@@ -879,7 +842,6 @@ const seed = async () => {
         resellPrice: 39.04,
         description:
           'lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin',
-        image: '/images/default-image.png',
         rating: 0.09,
         stock: 1
       },
@@ -889,7 +851,6 @@ const seed = async () => {
         resellPrice: 23.77,
         description:
           'in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea',
-        image: '/images/default-image.png',
         rating: 0.35,
         stock: 6
       },
@@ -898,7 +859,6 @@ const seed = async () => {
         origPrice: 3.37,
         resellPrice: 2.41,
         description: 'ac neque duis',
-        image: '/images/default-image.png',
         rating: 1.51,
         stock: 1
       },
@@ -908,7 +868,6 @@ const seed = async () => {
         resellPrice: 45.66,
         description:
           'odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel',
-        image: '/images/default-image.png',
         rating: 1.02,
         stock: 1
       },
@@ -918,7 +877,6 @@ const seed = async () => {
         resellPrice: 31.89,
         description:
           'lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed',
-        image: '/images/default-image.png',
         rating: 3.65,
         stock: 1
       },
@@ -928,7 +886,6 @@ const seed = async () => {
         resellPrice: 44.99,
         description:
           'magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien',
-        image: '/images/default-image.png',
         rating: 1.5,
         stock: 7
       },
@@ -937,7 +894,6 @@ const seed = async () => {
         origPrice: 40.38,
         resellPrice: 40.38,
         description: 'ut odio cras mi pede',
-        image: '/images/default-image.png',
         rating: 3.25,
         stock: 1
       },
@@ -946,7 +902,6 @@ const seed = async () => {
         origPrice: 47.43,
         resellPrice: 47.43,
         description: 'ultrices posuere cubilia',
-        image: '/images/default-image.png',
         rating: 1.98,
         stock: 1
       },
@@ -955,7 +910,6 @@ const seed = async () => {
         origPrice: 27.59,
         resellPrice: 27.59,
         description: 'etiam vel augue vestibulum rutrum rutrum neque',
-        image: '/images/default-image.png',
         rating: 3.59,
         stock: 1
       },
@@ -965,7 +919,6 @@ const seed = async () => {
         resellPrice: 46.43,
         description:
           'nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum',
-        image: '/images/default-image.png',
         rating: 0.42,
         stock: 1
       }
