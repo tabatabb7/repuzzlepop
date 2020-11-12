@@ -4,32 +4,35 @@ const db = require('../db')
 const Product = db.define('product', {
   name: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   origPrice: {
-    type: Sequelize.FLOAT
+    type: Sequelize.INTEGER,
+    validate: {},
   },
   resellPrice: {
-    type: Sequelize.FLOAT,
-    allowNull: false
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    validate: {},
   },
   description: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
   },
   image: {
-    type: Sequelize.TEXT
+    type: Sequelize.TEXT,
+    //defaultValue: 'default.png'
   },
   rating: {
-    type: Sequelize.FLOAT,
+    type: Sequelize.INTEGER,
     validate: {
       min: 0.0,
-      max: 5.0
-    }
+      max: 5.0,
+    },
   },
   stock: {
     type: Sequelize.INTEGER,
-    allowNull: false
-  }
+    allowNull: false,
+  },
 })
 
 module.exports = Product
