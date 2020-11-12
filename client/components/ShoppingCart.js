@@ -1,11 +1,9 @@
 import React from 'react'
-import {Navbar, Footer} from './index'
 
 export class ShoppingCart extends React.Component {
   render() {
     return (
       <div id="shoppingcartview">
-        <Navbar />
         <h2>List of Items:</h2>
         <div id="mappedproducts">
           {products.map(product => (
@@ -25,7 +23,6 @@ export class ShoppingCart extends React.Component {
           ))}
         </div>
         <button type="submit">Go To Checkout</button>
-        <Footer />
       </div>
     )
   }
