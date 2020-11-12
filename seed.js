@@ -2392,6 +2392,8 @@ const seed = async () => {
     ] = await User.bulkCreate(users)
     console.log(green('Seeded users'))
 
+    await lvogeler0.setProduct(ac)
+
     // set associations
     // await ac.setUser(lvogeler0)
     // await aliquam.setUser(kgarbar1)
