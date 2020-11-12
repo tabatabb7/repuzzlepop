@@ -22,6 +22,8 @@ form div {
 
 .products {
   display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
   flex: 3;
 }
 

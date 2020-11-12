@@ -13,13 +13,7 @@ const REMOVE_PRODUCT_FROM_SERVER = 'REMOVE_PRODUCT_FROM_SERVER'
 /**
  * INITIAL STATE
  */
-const initialState = {
-  products: [],
-  shoppingCart: {
-    // name,
-    // quantity
-  }
-}
+const initialState = []
 
 /**
  * ACTION CREATORS
