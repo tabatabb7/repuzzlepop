@@ -1,11 +1,12 @@
 const {green, red} = require('chalk')
 const {Product, User, Order, CartItem} = require('./server/db/models')
 const db = require('./server/db')
-
+console.log('after imports/requires')
 const seed = async () => {
   try {
+    console.log(db)
     await db.sync({force: true})
-
+    console.log('after the await')
     const products = [
       {
         name: 'Dr. J Basketball Game',
@@ -2511,11 +2512,12 @@ const seed = async () => {
 }
 
 module.exports = seed
-
+console.log('before if statement')
 if (require.main === module) {
+  console.log('inside if statement')
   seed()
     .then(() => {
-      console.log(green('Seeding success!'))
+      console.log('Seeding success!')
       db.close()
     })
     .catch(err => {
@@ -2523,4 +2525,5 @@ if (require.main === module) {
       console.error(err)
       db.close()
     })
+  console.log('the end')
 }
