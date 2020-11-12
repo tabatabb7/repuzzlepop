@@ -9,33 +9,25 @@ const SET_QUANTITY = 'SET_QUANTITY'
 const REMOVE_PRODUCT_FROM_SERVER = 'REMOVE_PRODUCT_FROM_SERVER'
 
 /**
- * INITIAL STATE
- */
-const initialState = {
-  products: [],
-  shoppingCart: {}
-}
-
-/**
  * ACTION CREATORS
  */
-const getProductsFromServer = products => ({
+export const getProductsFromServer = products => ({
   type: GET_PRODUCTS_FROM_SERVER,
   products
 })
 
-const addToCart = product => ({
+export const addToCart = product => ({
   type: ADD_PRODUCT_TO_CART,
   product
 })
 
-const setQuantity = (product, quantity) => ({
+export const setQuantity = (product, quantity) => ({
   type: SET_QUANTITY,
   product,
   quantity
 })
 
-const removeProductFromServer = productId => ({
+export const removeProductFromServer = productId => ({
   type: REMOVE_PRODUCT_FROM_SERVER,
   productId
 })
@@ -63,6 +55,14 @@ export const removeProduct = productId => {
       console.error('ERROR deleting a product from api!')
     }
   }
+}
+
+/**
+ * INITIAL STATE
+ */
+const initialState = {
+  products: [],
+  shoppingCart: {}
 }
 
 /**
