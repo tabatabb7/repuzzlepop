@@ -1,6 +1,7 @@
 import React from 'react'
 import {fetchSingleProduct} from '../store/singleproduct'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 class SingleProduct extends React.Component {
   componentDidMount() {
@@ -23,6 +24,12 @@ class SingleProduct extends React.Component {
             <p>{product.description}</p>
           </div>
         ))}
+        <form>
+          <label htmlFor="quantity">Quantity: </label>
+          <input type="number" id="quantity" name="quantity" />
+          <button type="submit">Add To Cart</button>
+        </form>
+        <Link to={`/products`}>Return to All Products</Link>
       </div>
     )
   }
