@@ -23,8 +23,10 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/signup">Sign Up</Link>
         </div>
       )}
-      <div>
-        <Link to="/shopping_cart">cart img</Link>
+      <div id="shopping-cart">
+        <Link to="/shopping_cart">
+          <img src="/images/shopping-cart.png" />
+        </Link>
       </div>
     </nav>
     <hr />
