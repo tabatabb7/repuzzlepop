@@ -7,8 +7,8 @@ const Order = db.define('order', {
     defaultValue: false
   },
   orderDate: {
-    type: Sequelize.DATE,
-    defaultValue: Date.now
+    type: Sequelize.DATEONLY,
+    defaultValue: Date.now()
   },
   totalPrice: {
     type: Sequelize.INTEGER,
