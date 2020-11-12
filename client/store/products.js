@@ -18,45 +18,47 @@ const initialState = {
   shoppingCart: {
     name,
     quantity
-  },
+  }
 }
 
 /**
  * ACTION CREATORS
  */
-const getProductsFromServer = (products) => ({
+const getProductsFromServer = products => ({
   type: GET_PRODUCTS_FROM_SERVER,
-  products,
+  products
 })
 
-const addToCart = (products) => ({
+const addToCart = products => ({
   type: ADD_PRODUCT_TO_CART,
-  products,
+  products
 })
 
-const removeFromCart = (products) => ({
+const removeFromCart = products => ({
   type: REMOVE_FROM_CART,
-  products,
-})
-const addQuantity = (products) => ({
-  type: ADD_QUANTITY,
-  products,
-})
-const subtractQuantity = (products) => ({
-  type: SUBTRACT_QUANTITY,
-  products,
+  products
 })
 
-const removeProductFromServer = (products) => ({
+const addQuantity = products => ({
+  type: ADD_QUANTITY,
+  products
+})
+
+const subtractQuantity = products => ({
+  type: SUBTRACT_QUANTITY,
+  products
+})
+
+const removeProductFromServer = products => ({
   type: REMOVE_PRODUCT_FROM_SERVER,
-  products,
+  products
 })
 
 /**
  * THUNK CREATORS
  */
 export const fetchProducts = () => {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const {data: products} = await axios.get('/api/products')
       dispatch(getProductsFromServer(products))
@@ -66,8 +68,8 @@ export const fetchProducts = () => {
   }
 }
 
-export const removeProduct = (productId) => {
-  return async (dispatch) => {
+export const removeProduct = productId => {
+  return async dispatch => {
     try {
       await axios.delete(`/api/products/${productId}`)
       dispatch(removeProductFromServer(productId))
@@ -89,18 +91,18 @@ export default function productsReducer(state = initialState, action) {
       return {
         ...state,
         products: [
-          ...state.products.filter(
-            (product) => product.id !== action.productId
-          ),
-        ],
+          ...state.products.filter(product => product.id !== action.productId)
+        ]
       }
     case ADD_PRODUCT_TO_CART:
       return {...state, shoppingCart: {name: action.products}}
-    case REMOVE_FROM_CART:
-      return {
-        ...state,
-        shoppingCart: 
-      }
+
+    // case REMOVE_FROM_CART:
+    //   return {
+    //     ...state,
+    //     shoppingCart:
+    //   }
+
     default:
       return state
   }

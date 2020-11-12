@@ -9,7 +9,7 @@ export class AllProducts extends React.Component {
   }
 
   render() {
-    const {products} = this.props
+    const {products} = this.props.products
     return (
       <div>
         <h2>All Products</h2>
