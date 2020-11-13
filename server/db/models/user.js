@@ -14,14 +14,15 @@ const User = db.define('user', {
   password: {
     type: Sequelize.STRING,
     allowNull: false,
-    validate: {
-      notEmpty: true,
-      isLongEnough: function(val) {
-        if (val.length < 7) {
-          throw new Error('Please choose a longer password')
-        }
-      }
-    }
+    defaultValue: 12345
+    // validate: {
+    //   notEmpty: true,
+    //   isLongEnough: function(val) {
+    //     if (val.length < 7) {
+    //       throw new Error('Please choose a longer password')
+    //     }
+    //   }
+    // }
     // Making `.password` act like a func hides it when serializing to JSON.
     // This is a hack to get around Sequelize's lack of a "private" option.
     // get() {
@@ -51,39 +52,39 @@ const User = db.define('user', {
     type: Sequelize.STRING
   },
   addressStreet1: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
+    // allowNull: false,
+    // validate: {
+    //   notEmpty: true
+    // }
   },
   addressStreet2: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
+    // allowNull: false,
+    // validate: {
+    //   notEmpty: true
+    // }
   },
   addressCity: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
+    // allowNull: false,
+    // validate: {
+    //   notEmpty: true
+    // }
   },
   addressPostal: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
+    // allowNull: false,
+    // validate: {
+    //   notEmpty: true
+    // }
   },
   addressCountry: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    type: Sequelize.STRING
+    // allowNull: false,
+    // validate: {
+    //   notEmpty: true
+    // }
   }
 })
 
