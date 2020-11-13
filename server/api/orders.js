@@ -25,17 +25,22 @@ router.get('/:orderId', async (req, res, next) => {
 //POST /api/orders/:orderId/products/:productId
 router.post('/:orderId/products/:productId', async (req, res, next) => {
   try {
-    // const order = await Order.findByPk(req.params.orderId)
-    const orderItem = await CartItem.findOrCreate(
-      {
+    const order = await Order.findOrCreate({
+      where: {
+        id: req.params.orderId,
+        orderNumber: req.params.orderId
+      }
+    })
+    if (order) {
+      const orderItem = await CartItem.findOrCreate({
         where: {
           orderId: req.params.orderId,
           productId: req.params.productId
-        }
-      },
-      req.body
-    )
-    res.json(orderItem)
+        },
+        defaults: req.body
+      })
+      res.json(orderItem)
+    }
   } catch (error) {
     next(error)
   }

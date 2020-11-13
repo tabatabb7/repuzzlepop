@@ -2,6 +2,7 @@ import React from 'react'
 import {fetchSingleProduct} from '../store/singleproduct'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {addToCart} from '../store/products'
 
 class SingleProduct extends React.Component {
   componentDidMount() {
@@ -41,7 +42,8 @@ const mapState = state => {
 }
 const mapDispatch = dispatch => {
   return {
-    loadSingleProduct: id => dispatch(fetchSingleProduct(id))
+    loadSingleProduct: id => dispatch(fetchSingleProduct(id)),
+    addItemToCart: product => dispatch(addToCart(product))
   }
 }
 export default connect(mapState, mapDispatch)(SingleProduct)
