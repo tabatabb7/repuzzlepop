@@ -987,8 +987,8 @@ const seed = async () => {
         addressCountry: 'El Salvador'
       },
       {
-        email: 'ytorres5@bing.com',
-        password: 'tVIDhsDt7W',
+        email: 'ytorres5@repuzzle.com',
+        password: 'isadmin',
         firstName: 'Yves',
         lastName: 'Torres',
         googleId: '22059914897672740588',
@@ -996,7 +996,8 @@ const seed = async () => {
         addressStreet2: 'Apt 6',
         addressCity: 'Canhestros',
         addressPostal: '7900-495',
-        addressCountry: 'Portugal'
+        addressCountry: 'Portugal',
+        isAdmin: true
       },
       {
         email: 'awoehler6@cbc.ca',
