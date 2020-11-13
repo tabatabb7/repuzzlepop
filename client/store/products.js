@@ -7,6 +7,7 @@ const GET_PRODUCTS_FROM_SERVER = 'GET_PRODUCTS_FROM_SERVER'
 
 const REMOVE_PRODUCT_FROM_SERVER = 'REMOVE_PRODUCT_FROM_SERVER'
 
+const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'
 /**
  * INITIAL STATE
  */
@@ -24,7 +25,10 @@ export const removeProductFromServer = products => ({
   type: REMOVE_PRODUCT_FROM_SERVER,
   products
 })
-
+export const addToCartAction = products => ({
+  type: ADD_PRODUCT_TO_CART,
+  products
+})
 /**
  * THUNK CREATORS
  */
@@ -49,7 +53,17 @@ export const removeProduct = productId => {
     }
   }
 }
-
+export const addToCart = product => {
+  return async dispatch => {
+    try {
+      const orderProduct = await axios.post('/api/products', product)
+      const action = addToCart(orderProduct)
+      dispatch(action)
+    } catch (error) {
+      console.error('ERROR adding product to cart!')
+    }
+  }
+}
 /**
  * REDUCER
  */
