@@ -2,6 +2,8 @@ import React from 'react'
 
 export class CheckoutPage extends React.Component {
   render() {
+    //placeholder
+    const products = []
     return (
       <div id="checkout-page">
         <h2>List of Items: </h2>

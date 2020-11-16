@@ -19,16 +19,21 @@ label {
   display: block;
 }
 
-nav {
+.navbar {
   display: flex;
+  padding: 10px;
 }
 
-nav a {
+/* nav a {
   display: inline-block;
   margin: 1em;
+} */
+
+nav {
+  padding-right: 10px;
 }
 
-nav #shopping-cart {
+#shopping-cart {
   width: 20px;
 }
 
