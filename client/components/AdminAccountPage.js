@@ -2,13 +2,23 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import {fetchProducts} from '../store/products'
+import {fetchAllUsers} from '../store/users'
+import {connect} from 'react-redux'
 
-export class AdminAccountPage extends React.Component {
+export class AdminAccountPage extends React.Compenent {
+  componentDidMount() {
+    // get all users
+    // get all products
+    this.props.getAllUsers()
+    this.props.getProducts()
+  }
+
   render() {
     // placeholder
 
-    const users = []
-    const products = []
+    const users = this.props.users
+    const products = this.props.products
 
     return (
       <div>
@@ -63,3 +73,15 @@ export class AdminAccountPage extends React.Component {
     )
   }
 }
+
+const mapState = state => ({
+  products: state.products,
+  users: state.users
+})
+
+const mapDispatch = dispatch => ({
+  getProducts: () => dispatch(fetchProducts()),
+  getAllUsers: () => dispatch(fetchAllUsers())
+})
+
+export default connect(mapState, mapDispatch)(AdminAccountPage)
