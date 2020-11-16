@@ -7,8 +7,8 @@ export const getAllUsers = users => ({type: GET_ALL_USERS, users})
 export const fetchAllUsers = () => {
   return async dispatch => {
     try {
-      const {data: users} = await axios.get('/apis/users')
-      dispatch(getAllUsers(users))
+      const {data} = await axios.get('/api/users')
+      dispatch(getAllUsers(data))
     } catch (error) {
       console.error(error)
     }
