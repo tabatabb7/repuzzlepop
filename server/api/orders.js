@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Order, CartItem} = require('../db/models')
+const {Order, CartItem, Product} = require('../db/models')
 module.exports = router
 
 // GET /api/orders
@@ -12,35 +12,38 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-// GET /api/orders/:orderId
-router.get('/:orderId', async (req, res, next) => {
+// GET /api/orders/shopping_cart
+router.get('/shopping_cart', async (req, res, next) => {
   try {
-    const order = await Order.findByPk(req.params.orderId)
-    res.json(order)
+    if (req.user) {
+      const order = await Order.findOrCreate({
+        where: {
+          userId: req.user.dataValues.id,
+          submitted: false
+        },
+        include: Product
+      })
+      res.json(order)
+    } else {
+      res.sendStatus(404)
+    }
   } catch (error) {
     next(error)
   }
 })
 
 //POST /api/orders/:orderId/products
-router.post('/:orderId/products', async (req, res, next) => {
+router.post('/:orderId/products/:productId', async (req, res, next) => {
   try {
-    const order = await Order.findOrCreate({
+    const orderItem = await CartItem.findOrCreate({
       where: {
-        id: req.params.orderId,
-        orderNumber: req.params.orderId
-      }
+        orderId: req.params.orderId,
+        productId: req.params.productId
+      },
+      defaults: req.body
     })
-    if (order) {
-      const orderItem = await CartItem.findOrCreate({
-        where: {
-          orderId: req.params.orderId,
-          productId: req.params.productId
-        },
-        defaults: req.body
-      })
-      res.json(orderItem)
-    }
+    console.log(orderItem)
+    res.json(orderItem)
   } catch (error) {
     next(error)
   }

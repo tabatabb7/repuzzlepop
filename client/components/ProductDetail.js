@@ -30,7 +30,7 @@ const ProductDetail = props => {
         <button
           className="add-to-cart-button"
           type="button"
-          onClick={handleClick}
+          onClick={() => handleClick(product, props.order.id)}
         >
           Add to Cart
         </button>

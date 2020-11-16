@@ -13,7 +13,7 @@ export class ShoppingCart extends React.Component {
           {products.length < 1
             ? 'No Products In Your Cart'
             : products.map(product => (
-                <div key="cart">
+                <div key={product.id}>
                   <table>
                     <tr>
                       <th>{product.name}</th>
