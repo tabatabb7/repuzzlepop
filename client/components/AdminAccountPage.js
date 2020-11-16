@@ -1,8 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
-// import Navbar from './Navbar'
-// import Footer from './Footer'
 import {fetchProducts} from '../store/products'
 import {fetchAllUsers} from '../store/users'
 
@@ -43,7 +41,9 @@ export class AdminAccountPage extends React.Component {
               : products.map(product => (
                   <div key={product.id}>
                     {product.name}{' '}
-                    <Link to={`/products/${product.id}`}>Product Info</Link>
+                    <NavLink to={`/products/${product.id}`}>
+                      Product Info
+                    </NavLink>
                   </div>
                 ))}
           </div>
@@ -52,8 +52,6 @@ export class AdminAccountPage extends React.Component {
     )
   }
 }
-
-// export default AdminAccountPage
 
 const mapState = state => ({
   products: state.products,

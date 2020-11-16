@@ -9,10 +9,10 @@ import AdminAccountPage from './AdminAccountPage'
 export const UserHome = props => {
   const {firstName, isAdmin} = props
 
-  console.log('props in userhome', props)
+  // console.log('props in userhome', props)
 
   if (isAdmin === true) {
-    console.log('admin account ', props.user)
+    // console.log('admin account ', props.user)
     return (
       <div>
         <h3>Welcome {firstName}</h3>
