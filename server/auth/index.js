@@ -4,6 +4,7 @@ module.exports = router
 
 router.post('/login', async (req, res, next) => {
   try {
+    console.log('attempting login post')
     const user = await User.findOne({where: {email: req.body.email}})
     if (!user) {
       console.log('No such user found:', req.body.email)
@@ -15,6 +16,7 @@ router.post('/login', async (req, res, next) => {
       req.login(user, err => (err ? next(err) : res.json(user)))
     }
   } catch (err) {
+    console.log('catch error in user.js')
     next(err)
   }
 })

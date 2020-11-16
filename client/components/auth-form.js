@@ -66,6 +66,11 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
+
+      console.log('handleSubmit name', evt.target.name)
+      console.log('handleSubmit value', evt.target.email.value)
+      console.log('handleSubmit password', evt.target.password.value)
+
       dispatch(auth(email, password, formName))
     }
   }
