@@ -63,3 +63,24 @@ form div {
 #checkoutpage {
   /**/
 }
+
+.content-wrapper {
+  display: flex;
+}
+
+/* ADMIN PAGE */
+
+#admin-account {
+}
+
+#all-users {
+  width: calc(50% - 20px);
+  padding: 20px;
+  border: 1px solid black;
+}
+
+#all-products {
+  width: calc(50% - 20px);
+  padding: 20px;
+  border: 1px solid black;
+}

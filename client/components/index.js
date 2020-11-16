@@ -5,6 +5,7 @@
  */
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
+export {default as AdminAccountPage} from './AdminAccountPage'
 export {Login, Signup} from './auth-form'
 export {Footer} from './Footer'
 export {default as SingleProduct} from './SingleProduct'
