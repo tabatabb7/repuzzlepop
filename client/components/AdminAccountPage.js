@@ -5,6 +5,11 @@ import Footer from './Footer'
 
 export class AdminAccountPage extends React.Component {
   render() {
+    // placeholder
+
+    const users = []
+    const products = []
+
     return (
       <div>
         <div>

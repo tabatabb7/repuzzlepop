@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink, Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 const ProductDetail = product => {
   // console.log('this.props.products.products ', this.props.products.products)
@@ -14,8 +14,7 @@ const ProductDetail = product => {
   return (
     <div className="product-detail-wrapper">
       <div key={product.product.id} className="product-child">
-        <a href="/products/1">
-          {/* <Link to={`/products/${product.product.id}`}> */}
+        <NavLink to={`/products/${product.product.id}`}>
           <div key={product.product.id}>
             <div className="product-name">{product.product.name}</div>
             <div className="product-img">
@@ -34,8 +33,7 @@ const ProductDetail = product => {
               Rating: {product.product.rating}
             </div>
           </div>
-          {/* </Link> */}
-        </a>
+        </NavLink>
         <button className="add-to-cart-button" type="button">
           Add to Cart
         </button>

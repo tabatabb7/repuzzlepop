@@ -987,8 +987,8 @@ const seed = async () => {
         addressCountry: 'El Salvador'
       },
       {
-        email: 'ytorres5@bing.com',
-        password: 'tVIDhsDt7W',
+        email: 'ytorres5@repuzzle.com',
+        password: 'isadmin',
         firstName: 'Yves',
         lastName: 'Torres',
         googleId: '22059914897672740588',
