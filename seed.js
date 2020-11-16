@@ -996,7 +996,8 @@ const seed = async () => {
         addressStreet2: 'Apt 6',
         addressCity: 'Canhestros',
         addressPostal: '7900-495',
-        addressCountry: 'Portugal'
+        addressCountry: 'Portugal',
+        isAdmin: true
       },
       {
         email: 'awoehler6@cbc.ca',

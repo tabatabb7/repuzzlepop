@@ -4,8 +4,8 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, Signup, UserHome, SingleProduct} from './components'
 import AllProducts from './components/AllProducts'
-// import SingleProduct from './components/SingleProduct'
 import {me} from './store'
+import ShoppingCart from './components/ShoppingCart'
 
 /**
  * COMPONENT
@@ -23,6 +23,8 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        {/* <Route path="/products/:productId" component={SingleProduct} /> */}
+        <Route path="/shopping_cart" component={ShoppingCart} />
         <Route exact path="/products" component={AllProducts} />
         <Route
           path="/products/:productId"
@@ -34,8 +36,6 @@ class Routes extends Component {
             <Route path="/home" component={UserHome} />
           </Switch>
         )}
-        {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
       </Switch>
     )
   }
