@@ -22,8 +22,8 @@ router.get('/:orderId', async (req, res, next) => {
   }
 })
 
-//POST /api/orders/:orderId/products/:productId
-router.post('/:orderId/products/:productId', async (req, res, next) => {
+//POST /api/orders/:orderId/products
+router.post('/:orderId/products', async (req, res, next) => {
   try {
     const order = await Order.findOrCreate({
       where: {

@@ -1,41 +1,36 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
-const ProductDetail = product => {
+const ProductDetail = props => {
   // console.log('this.props.products.products ', this.props.products.products)
   // console.log('this.props.products ', this.props.products)
   // console.log('products ', products)
 
-  console.log('product = ', product)
-  console.log('product = ', product.product.name)
-
-  // ternary in here for initial render
+  const {handleClick, product} = props
 
   return (
     <div className="product-detail-wrapper">
-      <div key={product.product.id} className="product-child">
+      <div key={props.id} className="product-child">
         <NavLink to={`/products/${product.id}`}>
           <div key={product.id}>
-            <div className="product-name">{product.product.name}</div>
+            <div className="product-name">{product.name}</div>
             <div className="product-img">
-              <img src={product.product.image} />
+              <img src={product.image} />
             </div>
             <div className="product-orig-price">
-              {product.product.origPrice}
+              Original Price: {product.origPrice}
             </div>
             <div className="product-resell-price">
-              {product.product.resellPrice}
+              Resell Price: {product.resellPrice}
             </div>
-            <div className="product-description">
-              {product.product.description}
-            </div>
-            <div className="product-rating">{product.product.rating}</div>
+            <div className="product-description">{product.description}</div>
+            <div className="product-rating">Ratings: {product.rating}</div>
           </div>
         </NavLink>
         <button
           className="add-to-cart-button"
           type="button"
-          //   onClick={() => this.handleDelete(student.id)}
+          onClick={handleClick}
         >
           Add to Cart
         </button>

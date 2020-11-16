@@ -1,16 +1,16 @@
-import Axios from 'axios'
+import axios from 'axios'
 
 const SET_SINGLE_PRODUCT = 'SET_SINGLE_PRODUCT'
 
-export const setSingleProduct = (product) => {
+export const setSingleProduct = product => {
   return {
     type: SET_SINGLE_PRODUCT,
-    product,
+    product
   }
 }
 
-export const fetchSingleProduct = (product) => {
-  return async (dispatch) => {
+export const fetchSingleProduct = productId => {
+  return async dispatch => {
     try {
       const {data} = await axios.get(`/api/products/${productId}`)
       dispatch(setSingleProduct(data))
@@ -24,7 +24,7 @@ const initialState = {}
 export default function singleProductReducer(state = initialState, action) {
   switch (action.type) {
     case SET_SINGLE_PRODUCT:
-      return {...action.product}
+      return action.product
     default:
       return state
   }

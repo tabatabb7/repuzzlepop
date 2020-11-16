@@ -4,31 +4,35 @@ import {fetchProducts, addToCart} from '../store/products'
 import {connect} from 'react-redux'
 
 export class AllProducts extends React.Component {
+  constructor() {
+    super()
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(product, orderId) {
+    this.props.addProductToCart(product, orderId)
+  }
+
   componentDidMount() {
-    console.log('Mounted')
+    // console.log('Mounted')
     this.props.getProducts()
   }
 
   render() {
-    const products = this.props.products
-
-    // console.log('this.props.products.products ', this.props.products.products)
-    // console.log('this.props.products ', this.props.products)
-    // console.log('products ', products)
-
-    // if (products.length)
-    // console.log('this.props.products', this.props.products)
-    // console.log('this.state.products  = ', this.state.products)
+    const {products} = this.props.products
 
     return (
       <div>
-        Rendering all products.
         <h2>All Products</h2>
         <div className="products">
           {products.length < 1
             ? 'No Products'
             : products.map(product => (
-                <ProductDetail key={product.id} product={product} />
+                <ProductDetail
+                  key={product.id}
+                  product={product}
+                  handleClick={this.handleClick}
+                />
               ))}
         </div>
       </div>
@@ -42,7 +46,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   getProducts: () => dispatch(fetchProducts()),
-  addItemToCart: () => dispatch(addToCart())
+  addProductToCart: (product, orderId) => dispatch(addToCart(product, orderId))
 })
 
 export default connect(mapState, mapDispatch)(AllProducts)
