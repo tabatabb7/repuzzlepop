@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductDetail from './ProductDetail'
-import {fetchProducts} from '../store/products'
+import {fetchProducts, addToCart} from '../store/products'
 import {connect} from 'react-redux'
 
 export class AllProducts extends React.Component {
@@ -41,7 +41,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  getProducts: () => dispatch(fetchProducts())
+  getProducts: () => dispatch(fetchProducts()),
+  addItemToCart: () => dispatch(addToCart())
 })
 
 export default connect(mapState, mapDispatch)(AllProducts)

@@ -2,8 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import {Link} from 'react-router-dom'
+
 import {ProductDetail} from './ProductDetail'
 import {fetchSingleProduct} from '../store/singleproduct'
+
 
 class SingleProduct extends React.Component {
   componentDidMount() {
