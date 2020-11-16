@@ -15,6 +15,8 @@ router.get('/', async (req, res, next) => {
 // GET /api/products/:productId
 router.get('/:productId', async (req, res, next) => {
   try {
+    console.log('getting single product')
+    console.log('req.params.productId = ', req.params.productId)
     const product = await Product.findByPk(req.params.productId)
     res.json(product)
   } catch (error) {
@@ -35,6 +37,7 @@ router.post('/', async (req, res, next) => {
 // PUT /api/products/:productId
 router.put('/:productId', async (req, res, next) => {
   try {
+    console.log('router: productId = ', productId)
     const product = await Product.findByPk(req.params.productId)
     const updatedProduct = await product.update(req.body)
     res.status(200).send(updatedProduct)
