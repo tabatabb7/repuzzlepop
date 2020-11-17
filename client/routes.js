@@ -9,6 +9,8 @@ import ShoppingCart from './components/ShoppingCart'
 import HomePage from './components/HomePage'
 import LoginSignup from './components/LoginPage'
 import SingleProduct from './components/SingleProduct'
+import CheckoutPage from './components/CheckoutPage'
+import Confirmation from './components/Confirmation'
 
 /**
  * COMPONENT
@@ -25,10 +27,10 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={HomePage} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/ls" component={LoginSignup} />
+        <Route path="/login_signup" component={LoginSignup} />
         <Route path="/shopping_cart" component={ShoppingCart} />
+        <Route path="/checkout" component={CheckoutPage} />
+        <Route path="/confirmation" component={Confirmation} />
         <Route exact path="/products" component={AllProducts} />
         <Route
           path="/products/:productId"

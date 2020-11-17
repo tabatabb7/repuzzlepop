@@ -14,7 +14,7 @@ export const UserHome = props => {
   if (isAdmin === true) {
     // console.log('admin account ', props.user)
     return (
-      <div>
+      <div className="content-wrapper">
         <h3>Welcome {firstName}</h3>
         <AdminAccountPage />
       </div>

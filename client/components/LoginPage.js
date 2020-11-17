@@ -4,11 +4,12 @@ import {Login, Signup} from './index'
 const LoginSignup = props => {
   return (
     <div className="content-wrapper">
-      <div className="log-in-sign-up-wrapper">
+      <div className="border-box">
         Already have an account? Log-in:
         <Login />
       </div>
-      <div className="log-in-sign-up-wrapper">
+
+      <div className="border-box">
         New to Repuzzle? Sign up for an account:
         <Signup />
       </div>
