@@ -8,7 +8,6 @@ const GET_TOTAL = 'GET_TOTAL'
 const GET_SINGLE_ORDER = 'GET_SINGLE_ORDER'
 const ADD_TO_CART = 'ADD_TO_CART'
 
-const initialState = {}
 // ACTION CREATOR
 
 export const removeFromCartAction = products => ({
@@ -73,6 +72,10 @@ export const addToCart = product => {
   }
 }
 
+const initialState = {
+  products: []
+}
+
 export default function ordersReducer(state = initialState, action) {
   switch (action.type) {
     case GET_SINGLE_ORDER:
@@ -80,7 +83,7 @@ export default function ordersReducer(state = initialState, action) {
       return action.order
 
     case ADD_TO_CART:
-      return {...state, products: [state.products, action.product]}
+      return {...state, products: [...state.products, action.product]}
 
     default:
       return state
