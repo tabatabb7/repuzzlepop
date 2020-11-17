@@ -31,7 +31,7 @@ export class AllProducts extends React.Component {
           {products.length < 1
             ? 'No Products'
             : products.map(product => (
-                <div key={product.id}>
+                <div key={product.id} className="all-products-wrapper">
                   <NavLink to={`/products/${product.id}`}>
                     <ProductDetail
                       product={product}

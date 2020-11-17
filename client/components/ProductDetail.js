@@ -18,10 +18,10 @@ const ProductDetail = props => {
             <img src={product.image} />
           </div>
           <div className="product-orig-price">
-            Original Price: {product.origPrice}
+            Original Price: ${product.origPrice}
           </div>
           <div className="product-resell-price">
-            Resell Price: {product.resellPrice}
+            Resell Price: ${product.resellPrice}
           </div>
           <div className="product-description">{product.description}</div>
           <div className="product-rating">Ratings: {product.rating}</div>

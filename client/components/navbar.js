@@ -7,14 +7,14 @@ import {logout} from '../store'
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div className="navbar">
     <div className="background-overlay">
-      <div id="logo">
+      <div>
         <Link to="/">
-          <img src="/images/logo-repuzzle.png" />
+          <img id="logo" src="/images/logo-repuzzle.png" />
         </Link>
       </div>
       <nav>
         {isLoggedIn ? (
-          <div>
+          <div className="menu-right">
             <ul className="menu-items">
               {/* The navbar will show these links after you log in */}
               <li>
@@ -36,7 +36,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             </ul>
           </div>
         ) : (
-          <div>
+          <div className="menu-right">
             <ul className="menu-items">
               {/* The navbar will show these links before you log in */}
               <li>
