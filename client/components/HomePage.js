@@ -3,7 +3,8 @@ import React from 'react'
 const HomePage = props => {
   return (
     <div className="homepage-wrapper">
-      Welcome to Repuzzle! Browse our selection!
+      <span>Tired of your old board games?</span>
+      <span>Repuzzle them!</span>
     </div>
   )
 }
