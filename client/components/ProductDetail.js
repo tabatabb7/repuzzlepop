@@ -8,8 +8,8 @@ const ProductDetail = props => {
 
   const {handleClick, product, order} = props
 
-  console.log('order ', order)
-  console.log('order.id ', order.id)
+  // console.log('order ', order)
+  // console.log('order.id ', order.id)
 
   return (
     <div className="product-detail-wrapper">
