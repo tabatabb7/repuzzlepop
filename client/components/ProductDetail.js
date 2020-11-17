@@ -1,5 +1,5 @@
 import React from 'react'
-// import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 const ProductDetail = props => {
   // console.log('this.props.products.products ', this.props.products.products)
@@ -47,6 +47,7 @@ const ProductDetail = props => {
           <input type="number" id="quantity" name="quantity" />
         </div>
         {/* </NavLink> */}
+        <NavLink to={`/products/${product.id}`}>See Product Details</NavLink>
         <button
           className="add-to-cart-button"
           type="button"
