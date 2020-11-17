@@ -15,7 +15,9 @@ router.get('/', async (req, res, next) => {
 // GET /api/orders/shopping_cart
 router.get('/shopping_cart', async (req, res, next) => {
   try {
+    console.log('req.user-->', req.user)
     if (req.user) {
+      console.log('req.user-->', req.user)
       const order = await Order.findOrCreate({
         where: {
           userId: req.user.dataValues.id,
@@ -40,7 +42,9 @@ router.post('/:orderId/products/:productId', async (req, res, next) => {
         orderId: req.params.orderId,
         productId: req.params.productId
       },
-      defaults: req.body
+      defaults: {
+        quantity: req.body.quantity
+      }
     })
     console.log(orderItem)
     res.json(orderItem)
