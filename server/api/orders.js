@@ -15,6 +15,7 @@ router.get('/', async (req, res, next) => {
 // GET /api/orders/shopping_cart
 router.get('/shopping_cart', async (req, res, next) => {
   try {
+    console.log('in shopping cart router req, ', req)
     if (req.user) {
       const order = await Order.findOrCreate({
         where: {

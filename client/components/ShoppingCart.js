@@ -20,7 +20,9 @@ export class ShoppingCart extends React.Component {
                       <div className="column">${product.resellPrice}</div>
                       <div className="column">
                         <form>
-                          <label htmlFor="quantity">Quantity: </label>
+                          <label htmlFor="quantity" min="1">
+                            Quantity:{' '}
+                          </label>
                           <input type="number" id="quantity" name="quantity" />
                           <button type="submit">Remove Item</button>
                         </form>

@@ -3,7 +3,6 @@ import ProductDetail from './ProductDetail'
 import {fetchProducts} from '../store/products'
 import {addToCart} from '../store/orders'
 import {connect} from 'react-redux'
-import {NavLink} from 'react-router-dom'
 
 export class AllProducts extends React.Component {
   constructor() {
@@ -32,13 +31,11 @@ export class AllProducts extends React.Component {
             ? 'No Products'
             : products.map(product => (
                 <div key={product.id} className="all-products-wrapper">
-                  <NavLink to={`/products/${product.id}`}>
-                    <ProductDetail
-                      product={product}
-                      order={this.props.order}
-                      handleClick={this.handleClick}
-                    />
-                  </NavLink>
+                  <ProductDetail
+                    product={product}
+                    order={this.props.order}
+                    handleClick={this.handleClick}
+                  />
                 </div>
               ))}
         </div>
