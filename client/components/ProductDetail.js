@@ -11,6 +11,24 @@ const ProductDetail = props => {
   return (
     <div className="product-detail-wrapper">
       <div key={props.id} className="product-child">
+
+        <NavLink to={`/products/${product.id}`}>
+          <div key={product.id}>
+            <div className="product-name">{product.name}</div>
+            <div className="product-img">
+              <img src={product.image} />
+            </div>
+            <div className="product-orig-price">
+              Original Price: {product.origPrice}
+            </div>
+            <div className="product-resell-price">
+              Resell Price: {product.resellPrice}
+            </div>
+            <div className="product-description">{product.description}</div>
+            <div className="product-rating">Ratings: {product.rating}</div>
+            <label htmlFor="quantity">Quantity: </label>
+            <input type="number" id="quantity" name="quantity" />
+
         {/* <NavLink to={`/products/${product.id}`}> */}
         <div key={product.id}>
           <div className="product-name">{product.name}</div>
