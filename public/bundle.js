@@ -430,20 +430,8 @@ var mapDispatch = function mapDispatch(dispatch) {
     },
     addProductToCart: function addProductToCart(product, orderId) {
       return dispatch(Object(_store_orders__WEBPACK_IMPORTED_MODULE_3__["addToCart"])(product, orderId));
-    },
-    fetchSingleOrder: function (_fetchSingleOrder) {
-      function fetchSingleOrder(_x) {
-        return _fetchSingleOrder.apply(this, arguments);
-      }
+    } // fetchSingleOrder: orderId => dispatch(fetchSingleOrder(orderId))
 
-      fetchSingleOrder.toString = function () {
-        return _fetchSingleOrder.toString();
-      };
-
-      return fetchSingleOrder;
-    }(function (orderId) {
-      return dispatch(fetchSingleOrder(orderId));
-    })
   };
 };
 
@@ -981,7 +969,10 @@ var ProductDetail = function ProductDetail(props) {
   // console.log('this.props.products ', this.props.products)
   // console.log('products ', products)
   var handleClick = props.handleClick,
-      product = props.product;
+      product = props.product,
+      order = props.order;
+  console.log('order ', order);
+  console.log('order.id ', order.id);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "product-detail-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1008,14 +999,15 @@ var ProductDetail = function ProductDetail(props) {
   }, "Quantity: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "number",
     id: "quantity",
-    name: "quantity"
+    name: "quantity",
+    min: "1"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
     to: "/products/".concat(product.id)
   }, "See Product Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "add-to-cart-button",
     type: "button",
     onClick: function onClick() {
-      return handleClick(product, props.order.id);
+      return handleClick(product, order.id);
     }
   }, "Add to Cart"))));
 };
@@ -1075,40 +1067,18 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(ShoppingCart, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchSingleOrder(this.props.match.params.orderId);
+    }
+  }, {
     key: "render",
     value: function render() {
-      var products = this.props.products.products;
+      var products = this.props.products;
+      console.log('in component products = ', products);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "shoppingcartview"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "List of Items:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "mappedproducts"
-      }, products.length < 1 ? 'No Products In Your Cart' : products.map(function (product) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: product.id,
-          className: "shopping-cart-item"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "column"
-        }, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "column"
-        }, "$", product.resellPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "column"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          htmlFor: "quantity",
-          min: "1"
-        }, "Quantity:", ' '), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "number",
-          id: "quantity",
-          name: "quantity"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          type: "submit"
-        }, "Remove Item")))));
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
-      }, "Go To Checkout")));
+      });
     }
   }]);
 
@@ -1117,7 +1087,7 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
 
 var mapState = function mapState(state) {
   return {
-    products: state.products
+    products: state.order.products
   };
 };
 
@@ -1125,6 +1095,9 @@ var mapDispatch = function mapDispatch(dispatch) {
   return {
     addProductToCart: function addProductToCart(product) {
       return dispatch(Object(_store_products__WEBPACK_IMPORTED_MODULE_2__["addToCart"])(product));
+    },
+    fetchSingleOrder: function fetchSingleOrder(id) {
+      return dispatch(Object(_store_products__WEBPACK_IMPORTED_MODULE_2__["fetchSingleOrder"])(id));
     }
   };
 };
@@ -1148,6 +1121,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _ProductDetail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductDetail */ "./client/components/ProductDetail.js");
 /* harmony import */ var _store_singleproduct__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/singleproduct */ "./client/store/singleproduct.js");
+/* harmony import */ var _store_orders__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/orders */ "./client/store/orders.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1174,31 +1148,42 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var SingleProduct = /*#__PURE__*/function (_React$Component) {
   _inherits(SingleProduct, _React$Component);
 
   var _super = _createSuper(SingleProduct);
 
   function SingleProduct() {
+    var _this;
+
     _classCallCheck(this, SingleProduct);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(SingleProduct, [{
+    key: "handleClick",
+    value: function handleClick(product, orderId) {
+      // this.props.fetchSingleOrder(orderId)
+      this.props.addProductToCart(product, orderId);
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      try {
-        var productId = this.props.match.params.productId;
-        this.props.fetchSingleProduct(productId);
-      } catch (error) {
-        console.error(error);
-      }
+      // try {
+      var productId = this.props.match.params.productId;
+      this.props.fetchSingleProduct(productId); // } catch (error) {
+      //   console.error(error)
+      // }
     }
   }, {
     key: "render",
     value: function render() {
       var product = this.props.product;
+      console.log('in singleproduct this.props ', this.props);
 
       if (product.length < 1) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1210,8 +1195,9 @@ var SingleProduct = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "single-product"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ProductDetail__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          key: product.id,
-          product: product
+          product: product,
+          order: this.props.order,
+          handleClick: this.handleClick
         })));
       }
     }
@@ -1222,7 +1208,8 @@ var SingleProduct = /*#__PURE__*/function (_React$Component) {
 
 var mapState = function mapState(state) {
   return {
-    product: state.product
+    product: state.product,
+    order: state.order
   };
 };
 
@@ -1230,6 +1217,9 @@ var mapDispatch = function mapDispatch(dispatch) {
   return {
     fetchSingleProduct: function fetchSingleProduct(productId) {
       return dispatch(Object(_store_singleproduct__WEBPACK_IMPORTED_MODULE_3__["fetchSingleProduct"])(productId));
+    },
+    addProductToCart: function addProductToCart(product, orderId) {
+      return dispatch(Object(_store_orders__WEBPACK_IMPORTED_MODULE_4__["addToCart"])(product, orderId));
     }
   };
 };
@@ -1916,7 +1906,7 @@ var fetchSingleOrder = function fetchSingleOrder(orderId) {
             case 3:
               _yield$axios$get = _context.sent;
               order = _yield$axios$get.data;
-              console.log(order.id);
+              console.log('in order thunk order.id,', order.id);
               dispatch(getSingleOrder(order));
               _context.next = 12;
               break;
@@ -1957,32 +1947,34 @@ var addToCart = function addToCart(product) {
               _yield$axios$get2 = _context2.sent;
               order = _yield$axios$get2.data;
               console.log('order', order);
-              idOrder = order[0].id;
-              console.log('order id', idOrder);
-              _context2.next = 11;
+              console.log('in order thunk, addToCart order', order);
+              console.log('in order thunk, addToCart order[0].id', order[0].id);
+              idOrder = order[0].id; // console.log('order id', idOrder)
+
+              _context2.next = 12;
               return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/orders/".concat(idOrder, "/products/").concat(product.id), product);
 
-            case 11:
+            case 12:
               orderProduct = _context2.sent;
               action = addToCartAction(orderProduct);
               dispatch(action); // const action = addToCartAction(order)
               // dispatch(action)
 
-              _context2.next = 20;
+              _context2.next = 21;
               break;
 
-            case 16:
-              _context2.prev = 16;
+            case 17:
+              _context2.prev = 17;
               _context2.t0 = _context2["catch"](0);
               console.error(_context2.t0);
               console.error('ERROR adding product to cart in thunk!');
 
-            case 20:
+            case 21:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[0, 16]]);
+      }, _callee2, null, [[0, 17]]);
     }));
 
     return function (_x2) {
@@ -1996,6 +1988,7 @@ function ordersReducer() {
 
   switch (action.type) {
     case GET_SINGLE_ORDER:
+      console.log('orders reducer action.order = ', action.order);
       return action.order;
 
     case ADD_TO_CART:

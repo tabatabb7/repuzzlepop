@@ -1,14 +1,19 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addToCart} from '../store/products'
+import {addToCart, fetchSingleOrder} from '../store/products'
 
 export class ShoppingCart extends React.Component {
+  componentDidMount() {
+    this.props.fetchSingleOrder(this.props.match.params.orderId)
+  }
   render() {
-    const {products} = this.props.products
+    const {products} = this.props
+
+    console.log('in component products = ', products)
 
     return (
       <div className="content-wrapper">
-        <div id="shoppingcartview">
+        {/* <div id="shoppingcartview">
           <h2>List of Items:</h2>
           <div id="mappedproducts">
             {products.length < 1
@@ -27,9 +32,9 @@ export class ShoppingCart extends React.Component {
                           <button type="submit">Remove Item</button>
                         </form>
                       </div>
-                    </div>
+                    </div> */}
 
-                    {/* <table>
+        {/* <table>
                     <tr>
                       <th>{product.name}</th>
                       <th>${product.resellPrice}</th>
@@ -40,22 +45,23 @@ export class ShoppingCart extends React.Component {
                     <input type="number" id="quantity" name="quantity" />
                     <button type="submit">Remove Item</button>
                   </form> */}
-                  </div>
-                ))}
-          </div>
+        {/* </div> */}
+        {/* ))} */}
+        {/* </div>
           <button type="submit">Go To Checkout</button>
-        </div>
+        </div> */}
       </div>
     )
   }
 }
 
 const mapState = state => ({
-  products: state.products
+  products: state.order.products
 })
 
 const mapDispatch = dispatch => ({
-  addProductToCart: product => dispatch(addToCart(product))
+  addProductToCart: product => dispatch(addToCart(product)),
+  fetchSingleOrder: id => dispatch(fetchSingleOrder(id))
 })
 
 export default connect(mapState, mapDispatch)(ShoppingCart)

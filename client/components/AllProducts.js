@@ -51,8 +51,8 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   getProducts: () => dispatch(fetchProducts()),
-  addProductToCart: (product, orderId) => dispatch(addToCart(product, orderId)),
-  fetchSingleOrder: orderId => dispatch(fetchSingleOrder(orderId))
+  addProductToCart: (product, orderId) => dispatch(addToCart(product, orderId))
+  // fetchSingleOrder: orderId => dispatch(fetchSingleOrder(orderId))
 })
 
 export default connect(mapState, mapDispatch)(AllProducts)

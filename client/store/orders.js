@@ -40,7 +40,7 @@ export const fetchSingleOrder = orderId => {
   return async dispatch => {
     try {
       const {data: order} = await axios.get('/api/orders/shopping_cart')
-      console.log(order.id)
+      console.log('in order thunk order.id,', order.id)
       dispatch(getSingleOrder(order))
     } catch (error) {
       console.error('ERROR fetching single order')
@@ -53,8 +53,10 @@ export const addToCart = product => {
       console.log('before axios')
       const {data: order} = await axios.get('/api/orders/shopping_cart')
       console.log('order', order)
+      console.log('in order thunk, addToCart order', order)
+      console.log('in order thunk, addToCart order[0].id', order[0].id)
       const idOrder = order[0].id
-      console.log('order id', idOrder)
+      // console.log('order id', idOrder)
       const orderProduct = await axios.post(
         `/api/orders/${idOrder}/products/${product.id}`,
         product
@@ -73,6 +75,7 @@ export const addToCart = product => {
 export default function ordersReducer(state = initialState, action) {
   switch (action.type) {
     case GET_SINGLE_ORDER:
+      console.log('orders reducer action.order = ', action.order)
       return action.order
     case ADD_TO_CART:
       return {...state, products: [state.products, action.product]}
