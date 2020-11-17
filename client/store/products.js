@@ -7,7 +7,6 @@ const GET_PRODUCTS_FROM_SERVER = 'GET_PRODUCTS_FROM_SERVER'
 
 const REMOVE_PRODUCT_FROM_SERVER = 'REMOVE_PRODUCT_FROM_SERVER'
 
-const ADD_TO_CART = 'ADD_TO_CART'
 /**
  * INITIAL STATE
  */
@@ -27,10 +26,7 @@ export const removeProductFromServer = products => ({
   type: REMOVE_PRODUCT_FROM_SERVER,
   products
 })
-export const addToCartAction = product => ({
-  type: ADD_TO_CART,
-  product
-})
+
 /**
  * THUNK CREATORS
  */
@@ -55,20 +51,7 @@ export const removeProduct = productId => {
     }
   }
 }
-export const addToCart = (product, orderId) => {
-  return async dispatch => {
-    try {
-      const orderProduct = await axios.post(
-        `/api/orders/${orderId}/products`,
-        product
-      )
-      const action = addToCartAction(orderProduct)
-      dispatch(action)
-    } catch (error) {
-      console.error('ERROR adding product to cart!')
-    }
-  }
-}
+
 /**
  * REDUCER
  */
@@ -84,8 +67,7 @@ export default function productsReducer(state = initialState, action) {
           ...state.products.filter(product => product.id !== action.productId)
         ]
       }
-    case ADD_TO_CART:
-      return {...state, products: [...state.products, action.product]}
+
     default:
       return state
   }

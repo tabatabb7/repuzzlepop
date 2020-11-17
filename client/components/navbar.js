@@ -6,33 +6,56 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div className="navbar">
-    <h1>Repuzzle</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div className="menu-item">
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <Link to="/products">All Products</Link>
-          <Link to="/shopping_cart">
-            <img id="shopping-cart" src="/images/shopping-cart.png" />
-          </Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div className="menu-item">
-          {/* The navbar will show these links before you log in */}
-          <Link to="/home">Home</Link>
-          <Link to="/products">All Products</Link>
-          <Link to="/shopping_cart">
-            <img id="shopping-cart" src="/images/shopping-cart.png" />
-          </Link>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
-    </nav>
+    <div className="background-overlay">
+      <div>
+        <Link to="/">
+          <img id="logo" src="/images/logo-repuzzle.png" />
+        </Link>
+      </div>
+      <nav>
+        {isLoggedIn ? (
+          <div className="menu-right">
+            <ul className="menu-items">
+              {/* The navbar will show these links after you log in */}
+              <li>
+                <Link to="/products">All Products</Link>
+              </li>
+              <li>
+                <Link to="/home">Account Home</Link>
+              </li>
+              <li>
+                <a href="#" onClick={handleClick}>
+                  Logout
+                </a>
+              </li>
+              <li>
+                <Link to="/shopping_cart">
+                  <img id="shopping-cart" src="/images/shopping-cart.png" />
+                </Link>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div className="menu-right">
+            <ul className="menu-items">
+              {/* The navbar will show these links before you log in */}
+              <li>
+                <Link to="/products">All Products</Link>
+              </li>
+              <li>
+                <Link to="/login_signup">Login</Link>
+              </li>
+              <li>
+                <Link to="/login_signup">Sign Up</Link>
+              </li>
+            </ul>
+            <Link to="/shopping_cart">
+              <img id="shopping-cart" src="/images/shopping-cart.png" />
+            </Link>
+          </div>
+        )}
+      </nav>
+    </div>
     {/* <hr /> */}
   </div>
 )

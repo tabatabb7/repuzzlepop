@@ -7,28 +7,42 @@ export class ShoppingCart extends React.Component {
     const {products} = this.props.products
 
     return (
-      <div id="shoppingcartview">
-        <h2>List of Items:</h2>
-        <div id="mappedproducts">
-          {products.length < 1
-            ? 'No Products In Your Cart'
-            : products.map(product => (
-                <div key="cart">
-                  <table>
+      <div className="content-wrapper">
+        <div id="shoppingcartview">
+          <h2>List of Items:</h2>
+          <div id="mappedproducts">
+            {products.length < 1
+              ? 'No Products In Your Cart'
+              : products.map(product => (
+                  <div key={product.id} className="shopping-cart-item">
+                    <div className="row">
+                      <div className="column">{product.name}</div>
+                      <div className="column">${product.resellPrice}</div>
+                      <div className="column">
+                        <form>
+                          <label htmlFor="quantity">Quantity: </label>
+                          <input type="number" id="quantity" name="quantity" />
+                          <button type="submit">Remove Item</button>
+                        </form>
+                      </div>
+                    </div>
+
+                    {/* <table>
                     <tr>
                       <th>{product.name}</th>
-                      <th>{product.resellPrice}</th>
+                      <th>${product.resellPrice}</th>
                     </tr>
                   </table>
                   <form>
                     <label htmlFor="quantity">Quantity: </label>
                     <input type="number" id="quantity" name="quantity" />
                     <button type="submit">Remove Item</button>
-                  </form>
-                </div>
-              ))}
+                  </form> */}
+                  </div>
+                ))}
+          </div>
+          <button type="submit">Go To Checkout</button>
         </div>
-        <button type="submit">Go To Checkout</button>
       </div>
     )
   }

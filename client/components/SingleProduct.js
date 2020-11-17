@@ -1,6 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'hyy
 import ProductDetail from './ProductDetail'
 import {fetchSingleProduct} from '../store/singleproduct'
 
@@ -8,7 +7,6 @@ export class SingleProduct extends React.Component {
   componentDidMount() {
     try {
       const productId = this.props.match.params.productId
-      // console.log('single product this.props.match.params.productId', productId)
       this.props.fetchSingleProduct(productId)
     } catch (error) {
       console.error(error)
@@ -17,18 +15,18 @@ export class SingleProduct extends React.Component {
 
   render() {
     const product = this.props.product
-    // console.log('this.props ', this.props)
-    // console.log('product ', product)
-
-    // if (typeof product === undefined) {
-    //   return <h2>Loading...</h2>
-    // } else {
-    //   return <div>Rendering</div>
-    // }
-    return (
-      <div className="content-wrapper">
-        <div className="single-product">
-          <ProductDetail product={product} />
+    if (product.length < 1) {
+      return (
+        <div className="content-wrapper">
+          <h2>Loading...</h2>
+        </div>
+      )
+    } else {
+      return (
+        <div className="content-wrapper">
+          <div id="single-product">
+            <ProductDetail key={product.id} product={product} />
+          </div>
         </div>
         <Link to="/products">Return to All Products</Link>
       </div>

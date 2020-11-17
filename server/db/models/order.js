@@ -16,14 +16,14 @@ const Order = db.define('order', {
       notEmpty: true,
       min: 0
     }
-  },
-  orderNumber: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
   }
+  // orderNumber: {
+  //   type: Sequelize.INTEGER,
+  //   allowNull: false,
+  //   validate: {
+  //     notEmpty: true
+  //   }
+  // }
 })
 
 module.exports = Order

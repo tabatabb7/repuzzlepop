@@ -1,65 +1,299 @@
 * {
   box-sizing: border-box;
   width: 100%;
-  font-family: sans-serif;
+  /* font-family: 'Barlow Semi Condensed', sans-serif; */
+  /* font-family: 'Frank Ruhl Libre', serif; */
+  font-family: 'Heebo', sans-serif;
+  /* font-family: 'Noto Serif', serif; */
+  /* font-family: 'Open Sans Condensed', sans-serif; */
+  /* font-family: 'Playfair Display', serif; */
+  /* font-family: 'Roboto', sans-serif; */
 }
 
 body {
   position: absolute;
   height: 100vh;
-  padding: 0;
   margin: 0;
+  background: linear-gradient(#ffffff, #c0c0c0);
 }
 
 a {
   text-decoration: none;
+  color: #ca1c24;
+  transition-duration: 0.4s;
+}
+
+a:hover {
+  color: #e06060;
 }
 
 label {
   display: block;
 }
 
-.navbar {
-  display: flex;
-  padding: 10px;
+button {
+  background-color: #ca1c24;
+  color: #ffffff;
+  border-radius: 15px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition-duration: 0.4s;
+  height: 50px;
+  font-size: 0.75em;
+  font-family: 'Rubik', sans-serif;
 }
 
-/* nav a {
-  display: inline-block;
-  margin: 1em;
-} */
+button:hover {
+  background-color: #e06060;
+}
+
+button a {
+  color: #ffffff;
+}
+
+/* NAVBAR */
+
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-size: 1.2em;
+}
+
+.background-overlay {
+  background-color: rgb(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
 
 nav {
-  padding-right: 10px;
+  display: flex;
+}
+
+.menu-right {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+}
+
+#logo {
+  padding-left: 5em;
+  width: 500px;
+}
+.menu-items {
+  display: inline-block;
+}
+
+.menu-items li {
+  list-style-type: none;
+  padding: none;
+}
+
+nav a {
+  /* display: inline-block; */
+  /* margin: 1em; */
+  color: #ca1c24;
+}
+
+nav a:hover {
+  color: #e06060;
+}
+
+nav a:visited {
+  color: #ca1c24;
 }
 
 #shopping-cart {
-  width: 20px;
+  width: 100px;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+/* FOOTER */
+
+#footer-menu {
+  display: flex;
+  justify-content: flex-start;
+  position: sticky;
 }
+
+#footer-menu li {
+  list-style-type: none;
+  padding: none;
+}
+
+/* CONTENT */
+
+.content-wrapper {
+  display: flex;
+  padding-top: 15%;
+  padding-left: 10%;
+  padding-right: 10%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-size: 1.25em;
+}
+
+.border-box {
+  border: 1px solid #ecebeb;
+  background-color: #ecebeb;
+  border-radius: 15px;
+  width: 45%;
+  padding: 20px;
+}
+
+/* FORMS */
+
+input[type='text'] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid red;
+  background-color: #ecebeb;
+  font-size: 0.75em;
+  font-family: 'Rubik', sans-serif;
+}
+
+input[type='password'] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid red;
+  background-color: #ecebeb;
+}
+
+/* HOMEPAGE */
+
+.homepage-wrapper {
+  background: url('/images/puzzle-background.jpg') no-repeat center center fixed;
+  background-size: 100%;
+  height: 100vh;
+  font-size: 3.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 4em;
+  color: #fff;
+  font-family: 'Frank Ruhl Libre', serif;
+}
+
+/* ALL PRODUCTS */
+
+/* .products-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+} */
 
 .products {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  /* padding-top: 10%;
+  padding-top: 0%;
+  padding-right: 20%; */
   flex-wrap: wrap;
   width: 100%;
 }
 
-.products .product-detail-wrapper {
+.product-orig-price {
+  text-decoration: line-through;
+}
+
+.all-products-wrapper {
+  width: calc(33.333333% - 30px);
+  padding-bottom: 30px;
+}
+
+/* .products .product-detail-wrapper {
   display: flex;
   flex-direction: column;
   padding: 10px;
   width: calc(33.333333% - 10px);
-}
+} */
 
 .products .product-detail-wrapper .product-name {
   width: 100%;
 }
 
+/* SINGLE PRODUCT */
+
+#single-product {
+  display: flex;
+  max-width: 50%;
+  justify-content: center;
+}
+
+#single-product .product-img {
+  order: 1;
+  width: 400px;
+}
+
+#single-product .product-name {
+  order: 3;
+}
+
+/* LOGIN SIGNUP */
+
+.log-in-sign-up-wrapper {
+  width: calc(50% - 20px);
+  padding: 20px;
+  border: 1px solid #ca1c24;
+  font-size: 1.5em;
+}
+
+/* ADMIN PAGE */
+
+#admin-account {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1em;
+  justify-content: space-between;
+}
+
+.tables {
+  width: calc(50% - 20px);
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+/* SHOPPING CART */
+
+.shopping-cart-item {
+  display: flex;
+}
+
+/* #all-products {
+  width: calc(50% - 20px);
+  padding: 20px;
+  border: 1px solid black;
+} */
+
 #checkoutpage {
   /**/
 }
+
+/* form div {
+  margin: 1em;
+  display: inline-block;
+} */
