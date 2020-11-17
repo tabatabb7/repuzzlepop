@@ -6,7 +6,10 @@ const ProductDetail = props => {
   // console.log('this.props.products ', this.props.products)
   // console.log('products ', products)
 
-  const {handleClick, product} = props
+  const {handleClick, product, order} = props
+
+  console.log('order ', order)
+  console.log('order.id ', order.id)
 
   return (
     <div className="product-detail-wrapper">
@@ -25,12 +28,12 @@ const ProductDetail = props => {
           <div className="product-description">{product.description}</div>
           <div className="product-rating">Ratings: {product.rating}</div>
           <label htmlFor="quantity">Quantity: </label>
-          <input type="number" id="quantity" name="quantity" />
+          <input type="number" id="quantity" name="quantity" min="1" />
           <NavLink to={`/products/${product.id}`}>See Product Details</NavLink>
           <button
             className="add-to-cart-button"
             type="button"
-            onClick={() => handleClick(product, props.order.id)}
+            onClick={() => handleClick(product, order.id)}
           >
             Add to Cart
           </button>
