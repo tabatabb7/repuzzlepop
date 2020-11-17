@@ -25,6 +25,8 @@ const ProductDetail = props => {
           </div>
           <div className="product-description">{product.description}</div>
           <div className="product-rating">Ratings: {product.rating}</div>
+          <label htmlFor="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" />
         </div>
         {/* </NavLink> */}
         <button
