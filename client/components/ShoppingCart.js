@@ -8,14 +8,14 @@ export class ShoppingCart extends React.Component {
     this.props.fetchSingleOrder()
   }
   render() {
-    const {products} = this.props
+    const products = this.props.order.products
 
     console.log('in component this.props: ', this.props)
     console.log('in component products = ', products)
 
     return (
       <div className="content-wrapper">
-        {/* <div id="shoppingcartview">
+        <div id="shoppingcartview">
           <h2>List of Items:</h2>
           <div id="mappedproducts">
             {products.length < 1
@@ -34,31 +34,19 @@ export class ShoppingCart extends React.Component {
                           <button type="submit">Remove Item</button>
                         </form>
                       </div>
-                    </div> */}
-
-        {/* <table>
-                    <tr>
-                      <th>{product.name}</th>
-                      <th>${product.resellPrice}</th>
-                    </tr>
-                  </table>
-                  <form>
-                    <label htmlFor="quantity">Quantity: </label>
-                    <input type="number" id="quantity" name="quantity" />
-                    <button type="submit">Remove Item</button>
-                  </form> */}
-        {/* </div> */}
-        {/* ))} */}
-        {/* </div>
+                    </div>
+                  </div>
+                ))}
+          </div>
           <button type="submit">Go To Checkout</button>
-        </div> */}
+        </div>
       </div>
     )
   }
 }
 
 const mapState = state => ({
-  products: state.order.products
+  order: state.order
 })
 
 const mapDispatch = dispatch => ({

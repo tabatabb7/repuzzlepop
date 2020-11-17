@@ -1075,12 +1075,40 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var products = this.props.products;
+      var products = this.props.order.products;
       console.log('in component this.props: ', this.props);
       console.log('in component products = ', products);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-wrapper"
-      });
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "shoppingcartview"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "List of Items:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "mappedproducts"
+      }, products.length < 1 ? 'No Products In Your Cart' : products.map(function (product) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: product.id,
+          className: "shopping-cart-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "column"
+        }, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "column"
+        }, "$", product.resellPrice), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "column"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "quantity",
+          min: "1"
+        }, "Quantity:", ' '), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "number",
+          id: "quantity",
+          name: "quantity"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "submit"
+        }, "Remove Item")))));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit"
+      }, "Go To Checkout")));
     }
   }]);
 
@@ -1089,7 +1117,7 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
 
 var mapState = function mapState(state) {
   return {
-    products: state.order.products
+    order: state.order
   };
 };
 
@@ -1908,7 +1936,7 @@ var fetchSingleOrder = function fetchSingleOrder() {
               order = _yield$axios$get.data;
               console.log('in order thunk order,', order);
               console.log('in order thunk order.id,', order[0].id);
-              dispatch(getSingleOrder(order[0].id));
+              dispatch(getSingleOrder(order[0]));
               _context.next = 13;
               break;
 

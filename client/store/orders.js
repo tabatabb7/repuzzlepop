@@ -42,7 +42,7 @@ export const fetchSingleOrder = () => {
       const {data: order} = await axios.get('/api/orders/shopping_cart')
       console.log('in order thunk order,', order)
       console.log('in order thunk order.id,', order[0].id)
-      dispatch(getSingleOrder(order[0].id))
+      dispatch(getSingleOrder(order[0]))
     } catch (error) {
       console.error('ERROR fetching single order')
     }

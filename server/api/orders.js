@@ -25,6 +25,7 @@ router.get('/shopping_cart', async (req, res, next) => {
         },
         include: Product
       })
+      console.log('in orders route: ', order)
       res.json(order)
     } else {
       res.sendStatus(404)
