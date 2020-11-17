@@ -1,14 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addToCart, fetchSingleOrder} from '../store/products'
+// import {addToCart} from '../store/products'
+import {fetchSingleOrder} from '../store/orders'
 
 export class ShoppingCart extends React.Component {
   componentDidMount() {
-    this.props.fetchSingleOrder(this.props.match.params.orderId)
+    this.props.fetchSingleOrder()
   }
   render() {
     const {products} = this.props
 
+    console.log('in component this.props: ', this.props)
     console.log('in component products = ', products)
 
     return (
@@ -60,8 +62,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  addProductToCart: product => dispatch(addToCart(product)),
-  fetchSingleOrder: id => dispatch(fetchSingleOrder(id))
+  // addProductToCart: product => dispatch(addToCart(product)),
+  fetchSingleOrder: () => dispatch(fetchSingleOrder())
 })
 
 export default connect(mapState, mapDispatch)(ShoppingCart)

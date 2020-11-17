@@ -970,9 +970,9 @@ var ProductDetail = function ProductDetail(props) {
   // console.log('products ', products)
   var handleClick = props.handleClick,
       product = props.product,
-      order = props.order;
-  console.log('order ', order);
-  console.log('order.id ', order.id);
+      order = props.order; // console.log('order ', order)
+  // console.log('order.id ', order.id)
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "product-detail-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1029,7 +1029,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _store_products__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/products */ "./client/store/products.js");
+/* harmony import */ var _store_orders__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/orders */ "./client/store/orders.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1053,6 +1053,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
+ // import {addToCart} from '../store/products'
 
 
 var ShoppingCart = /*#__PURE__*/function (_React$Component) {
@@ -1069,12 +1070,13 @@ var ShoppingCart = /*#__PURE__*/function (_React$Component) {
   _createClass(ShoppingCart, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchSingleOrder(this.props.match.params.orderId);
+      this.props.fetchSingleOrder();
     }
   }, {
     key: "render",
     value: function render() {
       var products = this.props.products;
+      console.log('in component this.props: ', this.props);
       console.log('in component products = ', products);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-wrapper"
@@ -1093,11 +1095,9 @@ var mapState = function mapState(state) {
 
 var mapDispatch = function mapDispatch(dispatch) {
   return {
-    addProductToCart: function addProductToCart(product) {
-      return dispatch(Object(_store_products__WEBPACK_IMPORTED_MODULE_2__["addToCart"])(product));
-    },
-    fetchSingleOrder: function fetchSingleOrder(id) {
-      return dispatch(Object(_store_products__WEBPACK_IMPORTED_MODULE_2__["fetchSingleOrder"])(id));
+    // addProductToCart: product => dispatch(addToCart(product)),
+    fetchSingleOrder: function fetchSingleOrder() {
+      return dispatch(Object(_store_orders__WEBPACK_IMPORTED_MODULE_2__["fetchSingleOrder"])());
     }
   };
 };
@@ -1890,7 +1890,7 @@ var addToCartAction = function addToCartAction(product) {
   };
 }; //THUNK CREATORS
 
-var fetchSingleOrder = function fetchSingleOrder(orderId) {
+var fetchSingleOrder = function fetchSingleOrder() {
   return /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch) {
       var _yield$axios$get, order;
@@ -1906,22 +1906,23 @@ var fetchSingleOrder = function fetchSingleOrder(orderId) {
             case 3:
               _yield$axios$get = _context.sent;
               order = _yield$axios$get.data;
-              console.log('in order thunk order.id,', order.id);
-              dispatch(getSingleOrder(order));
-              _context.next = 12;
+              console.log('in order thunk order,', order);
+              console.log('in order thunk order.id,', order[0].id);
+              dispatch(getSingleOrder(order[0].id));
+              _context.next = 13;
               break;
 
-            case 9:
-              _context.prev = 9;
+            case 10:
+              _context.prev = 10;
               _context.t0 = _context["catch"](0);
               console.error('ERROR fetching single order');
 
-            case 12:
+            case 13:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[0, 9]]);
+      }, _callee, null, [[0, 10]]);
     }));
 
     return function (_x) {
@@ -5020,7 +5021,7 @@ module.exports = (function() {
 
 var base64 = __webpack_require__(/*! base64-js */ "./node_modules/base64-js/index.js")
 var ieee754 = __webpack_require__(/*! ieee754 */ "./node_modules/ieee754/index.js")
-var isArray = __webpack_require__(/*! isarray */ "./node_modules/buffer/node_modules/isarray/index.js")
+var isArray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js")
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -6799,22 +6800,6 @@ function isnan (val) {
 }
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
-
-/***/ }),
-
-/***/ "./node_modules/buffer/node_modules/isarray/index.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/buffer/node_modules/isarray/index.js ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var toString = {}.toString;
-
-module.exports = Array.isArray || function (arr) {
-  return toString.call(arr) == '[object Array]';
-};
-
 
 /***/ }),
 
@@ -21650,8 +21635,10 @@ module.exports = function(arr, obj){
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+var toString = {}.toString;
+
 module.exports = Array.isArray || function (arr) {
-  return Object.prototype.toString.call(arr) == '[object Array]';
+  return toString.call(arr) == '[object Array]';
 };
 
 
@@ -51291,6 +51278,20 @@ if (true) {
 
 /***/ }),
 
+/***/ "./node_modules/react-router/node_modules/isarray/index.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react-router/node_modules/isarray/index.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/react-router/node_modules/path-to-regexp/index.js":
 /*!************************************************************************!*\
   !*** ./node_modules/react-router/node_modules/path-to-regexp/index.js ***!
@@ -51298,7 +51299,7 @@ if (true) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isarray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js")
+var isarray = __webpack_require__(/*! isarray */ "./node_modules/react-router/node_modules/isarray/index.js")
 
 /**
  * Expose `pathToRegexp`.

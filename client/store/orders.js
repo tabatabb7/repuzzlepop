@@ -36,12 +36,13 @@ export const addToCartAction = product => ({
 })
 
 //THUNK CREATORS
-export const fetchSingleOrder = orderId => {
+export const fetchSingleOrder = () => {
   return async dispatch => {
     try {
       const {data: order} = await axios.get('/api/orders/shopping_cart')
-      console.log('in order thunk order.id,', order.id)
-      dispatch(getSingleOrder(order))
+      console.log('in order thunk order,', order)
+      console.log('in order thunk order.id,', order[0].id)
+      dispatch(getSingleOrder(order[0].id))
     } catch (error) {
       console.error('ERROR fetching single order')
     }
@@ -77,8 +78,10 @@ export default function ordersReducer(state = initialState, action) {
     case GET_SINGLE_ORDER:
       console.log('orders reducer action.order = ', action.order)
       return action.order
+
     case ADD_TO_CART:
       return {...state, products: [state.products, action.product]}
+
     default:
       return state
   }
