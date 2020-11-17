@@ -11,50 +11,30 @@ const ProductDetail = props => {
   return (
     <div className="product-detail-wrapper">
       <div key={props.id} className="product-child">
-
-        <NavLink to={`/products/${product.id}`}>
-          <div key={product.id}>
-            <div className="product-name">{product.name}</div>
-            <div className="product-img">
-              <img src={product.image} />
-            </div>
-            <div className="product-orig-price">
-              Original Price: {product.origPrice}
-            </div>
-            <div className="product-resell-price">
-              Resell Price: {product.resellPrice}
-            </div>
-            <div className="product-description">{product.description}</div>
-            <div className="product-rating">Ratings: {product.rating}</div>
-            <label htmlFor="quantity">Quantity: </label>
-            <input type="number" id="quantity" name="quantity" />
-
-        {/* <NavLink to={`/products/${product.id}`}> */}
         <div key={product.id}>
           <div className="product-name">{product.name}</div>
           <div className="product-img">
             <img src={product.image} />
           </div>
           <div className="product-orig-price">
-            Original Price: ${product.origPrice}
+            Original Price: {product.origPrice}
           </div>
           <div className="product-resell-price">
-            Resell Price: ${product.resellPrice}
+            Resell Price: {product.resellPrice}
           </div>
           <div className="product-description">{product.description}</div>
           <div className="product-rating">Ratings: {product.rating}</div>
-          <label htmlFor="quantity">Quantity:</label>
+          <label htmlFor="quantity">Quantity: </label>
           <input type="number" id="quantity" name="quantity" />
+          <NavLink to={`/products/${product.id}`}>See Product Details</NavLink>
+          <button
+            className="add-to-cart-button"
+            type="button"
+            onClick={() => handleClick(product, props.order.id)}
+          >
+            Add to Cart
+          </button>
         </div>
-        {/* </NavLink> */}
-        <NavLink to={`/products/${product.id}`}>See Product Details</NavLink>
-        <button
-          className="add-to-cart-button"
-          type="button"
-          onClick={() => handleClick(product, props.order.id)}
-        >
-          Add to Cart
-        </button>
       </div>
     </div>
   )
