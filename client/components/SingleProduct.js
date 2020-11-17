@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import {Link} from 'react-router-dom'
 
-import {ProductDetail} from './ProductDetail'
+import ProductDetail from './ProductDetail'
 import {fetchSingleProduct} from '../store/singleproduct'
 
 export class SingleProduct extends React.Component {
@@ -22,10 +22,22 @@ export class SingleProduct extends React.Component {
     console.log('this.props ', this.props)
     console.log('product ', product)
 
-    if (typeof product === undefined) {
-      return <h2>Loading...</h2>
+    if (product.length < 1) {
+      console.log('loading')
+      return (
+        <div className="content-wrapper">
+          <h2>Loading...</h2>
+        </div>
+      )
     } else {
-      return <div>Rendering</div>
+      return (
+        <div className="content-wrapper">
+          <div>Rendering</div>
+          <div id="single-product">
+            <ProductDetail key={product.id} product={product} />
+          </div>
+        </div>
+      )
     }
 
     //

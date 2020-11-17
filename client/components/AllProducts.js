@@ -24,9 +24,9 @@ export class AllProducts extends React.Component {
     const {products} = this.props.products
 
     return (
-      <div>
-        <h2>All Products</h2>
+      <div className="content-wrapper">
         <div className="products">
+          <h2>All Products</h2>
           {products.length < 1
             ? 'No Products'
             : products.map(product => (

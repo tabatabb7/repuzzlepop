@@ -1,63 +1,144 @@
 * {
   box-sizing: border-box;
   width: 100%;
-  font-family: sans-serif;
+  /* font-family: 'Barlow Semi Condensed', sans-serif; */
+  /* font-family: 'Frank Ruhl Libre', serif; */
+  font-family: 'Heebo', sans-serif;
+  /* font-family: 'Noto Serif', serif; */
+  /* font-family: 'Open Sans Condensed', sans-serif; */
+  /* font-family: 'Playfair Display', serif; */
+  /* font-family: 'Roboto', sans-serif; */
+  /* font-family: 'Rubik', sans-serif; */
 }
 
 body {
   position: absolute;
   height: 100vh;
-  padding: 0;
   margin: 0;
 }
 
 a {
   text-decoration: none;
+  color: #ca1c24;
+}
+
+a:hover {
+  color: #efefef;
 }
 
 label {
   display: block;
 }
 
-.navbar {
-  display: flex;
-  padding: 10px;
+.button {
+  background-color: #ca1c24;
+  color: #fff;
+  border-radius: 25%;
 }
 
-/* nav a {
-  display: inline-block;
-  margin: 1em;
-} */
+/* NAVBAR */
 
-.homepage-wrapper {
-  background-image: url('/images/tmp-bg.jpg');
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 100%;
-  height: 100vh;
-  font-size: 3.5em;
+.navbar {
   display: flex;
-  justify-content: center;
+  position: fixed;
+  width: 100%;
+  /* opacity:1; */
+  z-index: 2;
+  font-size: 1.2em;
+}
+
+.background-overlay {
+  background-color: rgb(255, 255, 255, 0.8);
+  display: flex;
   align-items: center;
+  justify-content: end;
+  /* height: 100%; */
+  z-index: 1;
+}
+
+#logo {
+  padding-left: 5em;
+  height: 100px;
+}
+
+.menu-items li {
+  list-style-type: none;
+  padding: none;
 }
 
 nav {
-  padding-right: 10px;
+  display: flex;
+}
+
+nav a {
+  /* display: inline-block; */
+  /* margin: 1em; */
+  color: #ca1c24;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a:visited {
+  color: #ca1c24;
 }
 
 #shopping-cart {
-  width: 20px;
+  width: 100px;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+/* FOOTER */
+
+#footer-menu {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#footer-menu li {
+  list-style-type: none;
+  padding: none;
+}
+
+/* CONTENT */
+
+.content-wrapper {
+  padding-top: 10%;
+  padding-top: 20%;
+  padding-right: 20%;
+  justify-content: center;
+}
+
+/* HOMEPAGE */
+
+.homepage-wrapper {
+  background: url('/images/puzzle-background.jpg') no-repeat center center fixed;
+  background-size: 100%;
+  height: 100vh;
+  font-size: 3.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 4em;
+  color: #fff;
+  font-family: 'Frank Ruhl Libre', serif;
+}
+
+/* ALL PRODUCTS */
+
+.products-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
 }
 
 .products {
   display: flex;
   justify-content: center;
+  padding-top: 10%;
+  padding-top: 0%;
+  padding-right: 20%;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -77,8 +158,9 @@ form div {
   /**/
 }
 
-.content-wrapper {
-  display: flex;
+form div {
+  margin: 1em;
+  display: inline-block;
 }
 
 .log-in-sign-up-wrapper {
@@ -98,8 +180,8 @@ form div {
   border: 1px solid black;
 }
 
-#all-products {
+/* #all-products {
   width: calc(50% - 20px);
   padding: 20px;
   border: 1px solid black;
-}
+} */
