@@ -10,14 +10,16 @@ const ADD_TO_CART = 'ADD_TO_CART'
 
 // ACTION CREATOR
 
-export const removeFromCartAction = products => ({
+export const removeFromCartAction = (orderId, productId) => ({
   type: REMOVE_FROM_CART,
-  products
+  orderId,
+  productId
 })
 
-export const setQuantityAction = products => ({
+export const setQuantityAction = (product, quantity) => ({
   type: SET_QUANTITY,
-  products
+  product,
+  quantity
 })
 
 export const getTotalAction = product => ({
@@ -71,9 +73,40 @@ export const addToCart = product => {
     }
   }
 }
+export const setItemQuantity = (product, quantity) => {
+  return async dispatch => {
+    try {
+      const {data: order} = await axios.get('/api/orders/shopping_cart')
+      const idOrder = order[0].id
+      const updatedOrder = await axios.put(
+        `/api/orders/${idOrder}/products/${product.id}`,
+        {
+          quantity: quantity
+        }
+      )
+      console.log(updatedOrder)
+      dispatch(setQuantityAction(product, quantity))
+    } catch (error) {
+      console.error('Error Updating Quantity in Thunk!')
+    }
+  }
+}
 
+export const removeFromCart = (orderId, productId) => {
+  console.log('before return in THUNK')
+  return async dispatch => {
+    console.log('before try in THUNK')
+    try {
+      await axios.delete(`/api/orders/${orderId}/products/${productId}`)
+      dispatch(removeFromCartAction(orderId, productId))
+    } catch (error) {
+      console.error('ERROR removing from cart in THUNK')
+    }
+  }
+}
 const initialState = {
-  products: []
+  products: [],
+  quantity: 0
 }
 
 export default function ordersReducer(state = initialState, action) {
@@ -84,7 +117,16 @@ export default function ordersReducer(state = initialState, action) {
 
     case ADD_TO_CART:
       return {...state, products: [...state.products, action.product]}
-
+    case SET_QUANTITY:
+      console.log('action.quantity--->', action.quantity)
+      return {...state, quantity: action.quantity}
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        products: [
+          ...state.products.filter(product => product.id !== action.productId)
+        ]
+      }
     default:
       return state
   }

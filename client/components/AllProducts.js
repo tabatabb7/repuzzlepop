@@ -35,6 +35,7 @@ export class AllProducts extends React.Component {
                     product={product}
                     order={this.props.order}
                     handleClick={this.handleClick}
+                    quantity={this.props.quantity}
                   />
                 </div>
               ))}
@@ -52,6 +53,7 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   getProducts: () => dispatch(fetchProducts()),
   addProductToCart: (product, orderId) => dispatch(addToCart(product, orderId))
+
   // fetchSingleOrder: orderId => dispatch(fetchSingleOrder(orderId))
 })
 
